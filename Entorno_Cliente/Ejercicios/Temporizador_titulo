@@ -1,0 +1,34 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      /*Hacer un programa que ponga en el
+      title cada segundo un número Desde
+      -15 a +15 y luego vaya moviendo en bucle*/
+
+      var grados = 90;
+      /*Esto trabaja con valores que van
+      yendo desde -1 a +1. Si queremos cambiar
+      o aumentar el rango multiplico*/
+      Math.sin(grados/60)*10; //Valores entre -10 y 10
+
+      /*En caso de que quiera solamente
+      valores de 0 a 1, aplico el valor absoluto
+      y a tomar por saco*/
+      Math.abs(Math.sin(grados/60)*10); //Valores entre 0 y 10
+
+
+      /*Si queremos desplazarlo en la recta
+      le sumamos el valor a desplazar*/
+      Math.abs(Math.sin(grados/60)*10 + 50); //Valores entre 60 y 70
+
+
+      /*Girar imágenes muuuuuucho*/
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,7 @@
+var dato = prompt("Introduzca numero de telefono");
+var plantilla = /91[0-9]{7}/
+
+if (plantilla.test(dato)){
+  alert ("bien");
+}
+else alert("mal");

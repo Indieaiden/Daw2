@@ -1,0 +1,32 @@
+
+<!--
+Crear un formulario con varios campos, en
+los que el usuario mete los datos y después
+procesar los datos en procesar.php
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8" name="jorge" content="Formulario ejercicio
+    del tema 1">
+    <title>Formulario</title>
+    <meta name= content=>
+  </head>
+  <body>
+    <form class="" action="procesar.php" method="post">
+  <label for="id_nombre">Nombre:</label>
+
+  <input type="text" name="nombre" size="40" id="id_nombre"> <br><br>
+  <label for="id_anio">Año de nacimiento: </label>
+  <input type="number" name="nacido" min="1900" id="id_anio"> <br><br>
+  <label for="id_genero">Genero:</label> <br><br>
+    <input type="radio" name="hm" value="Hombre" id="id_genero"> Hombre <br><br>
+    <input type="radio" name="hm" value="Mujer" id="id_genero_m"> Mujer <br><br>
+    <input type="radio" name="hm" value="Otro" id="id_genero_o"> Otro <br><br>
+    <input type="submit" value="Enviar"> <br>
+    <input type="reset" value="Borrar"> <br>
+  </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang = "es">
+	<head>
+		<Title>Pagina 2</Title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="JavaScript/Spript.js" type="text/javascript"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="Java.js" type="text/javascript"></script>
+		<link href="css.css" type="text/css"/>
+		<meta name="Miguel" content="martín García"/>
+	</head>
+    <body>
+		<?php
+			CREATE DATABASE Banco;
+			
+			CREATE TABLE clientes  
+				(cl_dni VARCHAR(9) PRIMARY KEY NOT NULL,  
+			cl_nom varchar(50) NOT NULL,  
+			cl_dir varchar(60) NOT NULL,  
+			cl_tel varchar(9) NOT NULL,  
+			cl_ema varchar(65) NOT NULL,  
+			cl_fna DATE,  
+			cl_fcl DATE NOT NULL,  
+			cl_ncu TINYINT(2) NOT NULL,  
+			cl_sal INT(8) NOT NULL);
+			
+			CREATE TABLE cuentas  
+			(cu_ncu VARCHAR(10) PRIMARY KEY NOT NULL,  
+			cu_dn1 varchar(9) NOT NULL,  
+			cu_dn2 varchar(9),  
+			cu_sal INT(8) NOT NULL, 
+			FOREIGN KEY(cu_dn1,cu_dn2)References clientes(cl_dni, cl_dni));
+			
+			CREATE TABLE movimientos  
+			(mo_ncu VARCHAR(10) NOT NULL,  
+			mo_fec DATE NOT NULL,  
+			mo_hor varchar(6) NOT NULL,  
+			mo_des varchar(80) NOT NULL, 
+			mo_imp INT(8) NOT NULL, 
+			PRIMARY KEY(mo_ncu,mo_fec,mo_hor));  
+			
+			DROP DATABASE Banco;
+			
+		?>
+    </body>
+</html>

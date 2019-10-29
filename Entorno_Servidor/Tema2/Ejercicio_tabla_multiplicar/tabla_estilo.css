@@ -1,0 +1,37 @@
+
+
+table {
+  text-align: center;
+  border: 1px solid black;
+  width: 70%;
+  height: 70%;
+}
+
+td {
+
+  border: 1px solid black;
+  width: auto;
+  height: auto;
+
+}
+
+.color_1 {
+  background-color: SKYBLUE;
+}
+
+.color_2 {
+  background-color: LIGHTBLUE;
+}
+
+.fila_0 {
+  background-color: LIGHTPINK;
+}
+
+.columna_0 {
+  background-color: LIGHTPINK;
+}
+
+.x_roja {
+  background-color: LIGHTGREY;
+  color: red;
+}

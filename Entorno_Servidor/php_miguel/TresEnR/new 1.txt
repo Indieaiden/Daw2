@@ -1,0 +1,8 @@
+<?php
+	$colTablero = array(0,0,0);
+	$rowTablero = array($colTablero,$colTablero, $colTablero );
+	print_r($rowTablero);
+	$colTablero[0]=3;
+	print_r($rowTablero);
+?>	
+		

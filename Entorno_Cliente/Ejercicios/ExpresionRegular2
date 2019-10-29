@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      /*Hacer una plantilla
+      que permita extraer de una cadena
+      las direcciones de correo electrónico*/
+
+      //var input = prompt("Introduzca numero de telefono");
+
+      var false_input =
+      "holi@gmail.com ___@____.holi eee, asjiasjd, quetal@entuvida.com, esto@quetal.com, esto_noescorreo.com";
+
+      var regex = /\w+@\w+.[a-z]{1,4}/g;
+      document.write(false_input.match(regex));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

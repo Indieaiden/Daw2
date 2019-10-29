@@ -1,0 +1,17 @@
+
+Href es una instrucción dinámica, porque si cambiamos la
+propiedad de la página, podemos cambiar a otra.
+
+Una manera de cambiar de página es poniendo
+window.location.href = "http://"www.tiernogalvan.es";
+
+La ruta a una página web funciona así
+http://equipo.dominio:puerto/directorio/página#ancla?
+
+Después de la interrogación se envían las cosas
+como: variable1=valor1&variable2=valor2...etc
+
+
+Podemos tener el problema de que l página no
+se termine de cargar antes de lanzar una función.
+En este caso, en el body se pone la propiedad "onload"
