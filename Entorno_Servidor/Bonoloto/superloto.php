@@ -7,9 +7,6 @@
   <body>
 
 <?php
-  define('YA_VALIDADO', 'true');
-  define('NOMBRE', 'vacio');
-
   function comprobar()
   {
 //     $comprobaciones =  array(
@@ -48,7 +45,7 @@
     else {
       echo "<p>La contraseña tiene que tener mayus, minus y un caracter especial</p>";
     }
-    //$YA_VALIDADO = true;
+    return true;
   }
 
   function encontrarCE($string) {
@@ -105,7 +102,7 @@
   // --------------------MAIN---------------------------
   //Si el formulario se envía por primera vez, entonces comprobamos, si
   //lo que se hace es dar "volver a jugar, entonces no comprobamos"
-   if (YA_VALIDADO=='true') {
+   if (true) {
     imprimirSuperloto();
    } else {
     comprobar();
@@ -188,7 +185,8 @@ También presentará un enlace al propio programa para generar nuevas lotos gana
      <td class="tg-0pky"><?php echo $complementario; ?></td>
    </tr>
  </table> <br><br>
- <a href=<?php echo $_SERVER['PHP_SELF']; ?>> Volver a jugar </a>
+ <a href=<?php echo $_SERVER['PHP_SELF'];
+ //Hay que ponerle el ? =  ?>> Volver a jugar </a>
  <?php } ?>
 
 </body>
