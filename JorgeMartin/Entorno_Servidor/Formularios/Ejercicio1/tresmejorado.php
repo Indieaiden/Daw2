@@ -78,9 +78,6 @@
   		</form>
       <?php
     }
-    function formularioRojo() {
-
-    }
 
 
     // -----------------MAIN---------------------
@@ -89,12 +86,15 @@
 
       $valido = validar();
 
-        if ($valido) {
-          mostrarDatos();
-        } else {
-          formularioRojo();
-        }
-    }  else {
+    }
+    if (isset($_POST['enviar']) && $valido) {
+      mostrarDatos();
+    }
+    else {
+      //Meter errores en algún sitio a la
+      //hora de validar, y usarlos para
+      //hacer la propia comprobación
+      //dentro de la funcion Formularios
       mostrarFormulario();
     }
 
