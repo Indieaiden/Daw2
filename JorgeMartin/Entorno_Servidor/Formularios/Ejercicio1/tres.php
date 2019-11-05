@@ -7,12 +7,15 @@
 	</head>
 	<body>
 		<?php
+		//DECLARACIÓN DE FUNCIONES
 		function filtrado($datos){
 			$datos = trim($datos);//elimina espacios antes y después de los datos
 			$datos = stripslashes($datos);//elimina Backslashes
 			$datos = htmlspecialchars($datos);//traduce caracteres especiales en entidades html;
 			return $datos;
 		}
+
+		//A PARTIR DE AQUÍ
 		$validado = false;
 		if (isset($_POST['enviar'])){ //Con esto comprobamos si hemos enviado ya el formulario o es la primera vez
 			/*
@@ -34,12 +37,6 @@
 		$aditivos = $_REQUEST['aditivos'];
 		foreach($aditivos as $aditivo)
 			print ("$aditivo <br>");
-		/*
-		$actualizar = $_REQUEST['actualizar'];
-		if($actualizar)
-			print("Han sido actualizados los datos");
-		print ("<br>");
-		*/
 		$username =$_REQUEST['username'];
 		print ($username);
 		print ("<br>");
