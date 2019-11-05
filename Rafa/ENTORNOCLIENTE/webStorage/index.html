@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+  <title>Pruebas Cookies</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Rafael">
+  <meta name="description" content="Mi primera página">
+  <script>
+
+
+function creaCookie(){
+	var nombre= prompt("Escribe un nombre para la cookie");
+	var valor= prompt("Escribe un valor para la cookie");
+	var segundos= prompt("En cuantos segundos quieres que caduque el Storage","20");
+	var fecha=new Date();
+	fecha.setTime(fecha.getTime()+segundos*1000);
+	var miliseconds= fecha.getTime();
+	var objeto= "nombre="+valor+",fecha="+miliseconds;
+	window.localStorage.setItem(nombre,objeto);
+}
+
+
+function mostrarCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para mostrar su valor");
+	if(window.localStorage.getItem(nombre)==null) alert ("No existe ningun Storage con el nombre "+nombre);
+	else alert (nombre+" = "+ window.localStorage.getItem(nombre));
+}
+
+function separa(nombre){
+	var separador1 = new RegExp (",","g");
+	var valores=window.localStorage.getItem(nombre).split(separador1);
+	console.log(valores);
+	return valores;
+}
+
+function comprobarCookies(){
+	for (var i = 0; i < localStorage.length; i++) {
+		var nombre=window.localStorage.key(i);
+		var valores=separa(nombre);
+		var separador2 = new RegExp ("=","g");
+		for (var i = 0; i < valores.length; i++) {
+			var valor=valores[i].split(separador2);
+			if(valor[0]=="fecha"){
+				var fecha=new Date();
+				var fecha1= fecha.getTime();
+				if(valor[1]>fecha1) window.localStorage.removeItem(window.localStorage.key(i));
+			} 
+		}
+	}
+}
+
+function listadoCookies(){
+	var cadena="";
+	for (var i = 0; i < localStorage.length; i++) {
+		var nombre=window.localStorage.key(i);
+		var valores=separa(nombre);
+		var separador2 = new RegExp ("=","g");
+		for (var i = 0; i < valores.length; i++) {
+			var valor=valores[i].split(separador2);
+			cadena += valor[0]+" = "+valor[1]+"\n";
+		}
+	}
+	alert (cadena);
+}
+
+
+function borraCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para borrarla");
+	if(window.localStorage.getItem(nombre)==null){ alert ("No existe ningun Storage con el nombre "+nombre);}
+	else {
+		alert (nombre+" con valor "+ window.localStorage.getItem(nombre)+" borrado");
+		window.localStorage.removeItem(nombre);
+
+	}
+}
+
+function modificaCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para modificarlo");
+	if(window.localStorage.getItem(nombre)==null) alert ("No existe ningun Storage con el nombre "+nombre);
+	else {
+	var valor= prompt("Escribe un valor para modificarlo","Actualmente "+nombre+" = "+window.localStorage.getItem(nombre));
+
+		window.localStorage.setItem(nombre,valor);
+
+	alert (nombre+" modificado. Ahora vale "+ window.localStorage.getItem(nombre));
+	}
+}
+
+
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+	<p>"La millor página del mondo"</p>
+	<form>
+				<button onclick="comprobarCookies()">Comprobar cookie</button>
+
+		<button onclick="creaCookie()">Crear una cookie</button>
+		<button onclick="borraCookie()">Borra una cookie</button>
+		<button onclick="mostrarCookie()">Mostrar valor de cookie</button>
+		<button onclick="listadoCookies()">Listado de cookies</button>
+		<button onclick="modificaCookie()">Cambiar valor de una cookie</button>
+
+	</form>
+	<div id="cont"></div>
+</body>
+</html>

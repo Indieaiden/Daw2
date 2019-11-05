@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+  <title>Pruebas Cookies</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Rafael">
+  <meta name="description" content="Mi primera página">
+  <script>
+
+
+
+var tiempo;
+var fecha;
+function creaCookie(){
+	var nombre= prompt("Escribe un nombre para la cookie");
+	var valor= prompt("Escribe un valor para la cookie");
+	tiempo= parseInt(prompt("En cuanto segundos quieres que expire la cookie"));
+	fecha=new Date();
+	fecha.setTime(fecha.getTime()+tiempo*1000);
+	document.cookie = nombre+"="+valor+"; expires= "+fecha.toUTCString();
+}
+function encuentraCookie(nombre){
+	var separador1 = new RegExp ("; ","g");
+	var separador2 = new RegExp ("=","g");
+	var boole=false;
+	var cookies=document.cookie.split(separador1);
+	for (var i = 0; i < cookies.length; i++) {
+		var cookie=cookies[i].split(separador2);
+		if(cookie[0]==nombre)boole=true;
+	}
+	return boole;
+}
+
+function listadoCookies(){
+	var cadena="";
+	var separador1 = new RegExp ("; ","g");
+	var separador2 = new RegExp ("=","g");
+	var cookies=document.cookie.split(separador1);
+	for (var i = 0; i < cookies.length; i++) {
+		var cookie=cookies[i].split(separador2);
+		cadena += (cookie[0] +" tiene el valor: "+cookie[1]+"\n");
+	}
+	alert(cadena);
+}
+
+function mostrarCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para mostrar su valor");
+	var boole=encuentraCookie(nombre);
+	if(boole){
+		var separador1 = new RegExp ("; ","g");
+		var separador2 = new RegExp ("=","g");
+		var cookies=document.cookie.split(separador1);
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie=cookies[i].split(separador2);
+			if(cookie[0]==nombre)alert(cookie[0]+" tiene el valor: "+cookie[1]);
+		}
+	}else alert("No existe ninguna cookie con ese nombre");
+}
+
+
+function modificarCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para modificarla");
+	var boole=encuentraCookie(nombre);
+	if(boole){
+		var valor= prompt("Escribe el valor que quieres que tome esa variable");
+		var separador1 = new RegExp ("; ","g");
+		var separador2 = new RegExp ("=","g");
+		var boole=true;
+		var cookies=document.cookie.split(separador1);
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie=cookies[i].split(separador2);
+			if(cookie[0]==nombre){
+				var fecha=new Date();
+				fecha.setTime(fecha.getTime()+20*1000);
+				document.cookie= cookie[0]+"="+valor+"; expires="+fecha.toUTCString();
+			} 
+		}
+	}else alert("No existe ninguna cookie con ese nombre");
+}
+
+function borraCookie(){
+	var nombre= prompt("Escribe el nombre de la cookie para borrarla");
+	var boole=encuentraCookie(nombre);
+	if(boole){
+		var separador1 = new RegExp ("; ","g");
+		var separador2 = new RegExp ("=","g");
+		var boole=true;
+		var cookies=document.cookie.split(separador1);
+		for (var i = 0; i < cookies.length; i++) {
+			var cookie=cookies[i].split(separador2);
+			if(cookie[0]==nombre){
+				var fecha=new Date();
+				fecha.setTime(fecha.getTime()-1000);
+				document.cookie= cookie[0]+"="+cookie[1]+"; expires="+fecha.toUTCString();
+			} 
+		}
+	}else alert("No existe ninguna cookie con ese nombre");
+}
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+	<p>"La millor página del mondo"</p>
+	<form>
+		<button onclick="creaCookie()">Crear una cookie</button>
+		<button onclick="borraCookie()">Borra una cookie</button>
+
+		<button onclick="listadoCookies()">Listado de cookies</button>
+		<button onclick="mostrarCookie()">Mostrar valor de cookie</button>
+		<button onclick="modificarCookie()">Cambiar valor de una cookie</button>
+
+
+	</form>
+	<div id="cont"></div>
+</body>
+</html>

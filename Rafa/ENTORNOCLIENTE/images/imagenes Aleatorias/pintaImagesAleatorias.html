@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+  <title>Pruebas Cookies</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Rafael">
+  <meta name="description" content="Mi primera página">
+  <script>
+
+
+function cambiaImagenes(){ //meter la imagen en un array
+       var imagenes = ["./1.jpg","./2.jpg","./3.jpg","./4.jpg"];
+      var rand = Math.round(Math.random()*3);
+      document.images["foto"].src = imagenes[rand]
+       }
+     
+     setInterval("cambiaImagenes()",500);
+
+
+
+</script>
+
+</head>
+
+<body>
+	<p>"La millor página del mondo"</p>
+
+          <img src="3.jpg" name="foto">
+
+</body>
+</html>
