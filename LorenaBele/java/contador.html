@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>prueba</title>
+<script>
+function cambia(){
+	document.title="cookie es "+leerCookie("contador");
+}
+/*for(propiedad in location){
+	document.write(propiedad+"..."+ location[propiedad]+"<br/>");
+	}*/
+function asignarCookie(nombre,valor,caducidad){
+	document.cookie=nombre+"="+escape(valor)+
+	((caducidad ==undefined) ? "" : ("; expires="+caducidad.toGMTString()));
+	}
+function leerCookie(nombre){
+	if(document.cookie.length==0)return null;
+	var trozo1 =new RegExp("; ","g");
+	var trozo2 =new RegExp("=","g");
+	var listaCookie=document.cookie.split(trozo1);
+	for(var i=0;i<listaCookie.length;i++){
+		var cookie=listaCookie[i].split(trozo2);
+		if(cookie[0]==nombre){
+		return cookie[1];
+		}
+	}return null;
+}
+
+var ss= new Date();
+ss.setTime(ss.getTime()+(0.1*60*1000));
+
+var cn;
+
+if((leerCookie("contador")) == null){
+	asignarCookie("contador",0,ss);
+	
+
+}
+cn=leerCookie("contador");
+cambia();
+setTimeout("cambia()",3000);
+++cn;
+asignarCookie("contador",cn,ss);
+
+</script>
+</head>
+<body onload ="(cambia())"></body>
+</html>

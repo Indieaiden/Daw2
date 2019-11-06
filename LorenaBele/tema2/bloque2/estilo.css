@@ -1,0 +1,12 @@
+table{
+	
+	border-style: inset;
+}
+td,tr{
+	
+	border-style: inset;
+}
+.color1{
+	
+	 background-color : <?php echo $color1 ?> hsl(0,100%,50%);
+}

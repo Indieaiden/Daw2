@@ -1,0 +1,1 @@
+09:55:30Línea : 10 Ruta : C:\xampp\htdocs\tema4\tema4\procesar.php Directorio: C:\xampp\htdocs\tema4\tema4 Función: nif 

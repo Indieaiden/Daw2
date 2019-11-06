@@ -1,0 +1,47 @@
+table{
+	background:#CCCBCB;
+	margin: auto;
+	}
+.f1{
+	/*pinta azul ,centra el texto y modifica el largo de las celdas*/
+	border-style: inset;
+	background: #93D2DA;
+	text-align:center;
+	width:30px;
+}	
+.f2{
+	/*pinta  en amrillo ,centra el texto y modifica el largo de las celdas*/
+	width:30px;
+	border-style: inset;
+	background: #F8F669;
+	text-align:center;
+}	
+
+.f{
+	/*pinta en gris ,centra el texto , modifica el largo de las celdas y pinta el texto */
+	border-style: inset;
+	background: #E6E7E2;
+	color : #A51316;
+	text-align:center;
+	width:30px;
+}	
+#d4 {
+	/*pinta en rojo,centra el texto y modifica el largo de las celdas*/
+	color :#FA161B;
+	text-align:center;
+	width:30px;
+}
+caption{
+	/*la fuente la pone en negrita*/
+	font-weight: bold;
+}
+p{
+	text-align:center;
+}
+h1{
+	text-align:center;
+}
+form{
+	text-align:center;
+	font-weight: bold;
+}

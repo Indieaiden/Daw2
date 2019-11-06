@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>prueba cookie</title>
+
+<script type="text/javaScript" src="prueba.js"></script>
+<script>
+function guardar(){
+	var nombre=prompt("nombre","xx");
+	if(leerCookie(nombre)== null){
+		var valor=prompt("valor","xx");
+		var tiempo=parseInt(prompt("tiempo","xx"));
+		var ss= new Date();
+		ss.setTime(ss.getTime()+(tiempo*1000));
+		asignarCookie(nombre,valor,ss);		
+	}
+}	
+function buscar(nombre){
+		var nombre=prompt("nombre","xx");
+		alert("el valor de la cookie es "+leerCookie(nombre));
+}
+function borra(){
+		var nombre=prompt("nombre","xx");
+		var ss= new Date();
+		ss.setTime(ss.getTime()/1000);
+		asignarCookie(nombre,0,ss);
+		//document.cookie=nombre+"="+((caducidad ==undefined)? "" : ("; expires="+caducidad.toGMTString()));
+}	
+function modificar(){
+	var nombre=prompt("nombre","xx");
+	if(leerCookie(nombre)== null){
+		alert("la cookie que desae modificar no existe");
+	}else{
+		var valor= prompt("valor a modificar","xx");
+		asignarCookie(nombre,valor,ss);
+		leerCookie(nombre);
+		}
+}
+</script>
+</head>
+<body>
+	<input  type="submit" value ="Guardar cookie" onclick="guardar()">
+	<input  type="submit" value ="Borrar cookie" onclick="borra()">
+	<input  type="submit" value ="Modificar cookie" onclick="modificar()">
+	<input  type="submit" value ="Listado cookie" onclick="listado()">
+	<input  type="submit" value ="Buscar cookie" onclick="buscar()">
+</body>
+</html>
