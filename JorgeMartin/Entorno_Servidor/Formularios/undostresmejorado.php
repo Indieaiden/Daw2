@@ -4,15 +4,28 @@
 		<title>Formulario</title>
 		<meta charset= "utf-8"/>
 		<meta name = "description" content="Mi primera página"/>
-		<meta name= "author" content= "carmen"/>
+		<meta name= "author" content= "Jorge Martin Garcia"/>
 
 	</head>
 	<body>
 		<?php
+    //errores empieza vacío???????
 			$errores ;
+      /*
+        Primero comprobamos si el formulario está enviado. En caso de que sí, entramos
+        a hacer las comprobaciones pertinentes de nombre, contraseña etc etc. De esta forma,
+        ponemos errores con ALGÚN valor.
+      */
 			if(isset($_POST['enviar'])){
 
 				$longitudCon = strlen($_POST['contrasena']);
+
+        /*
+          Una vez ya sabemos que el formulario ha sido enviado, comprobamos si hay errores en
+          los datos. En caso de que no haya ninguno, es decir (no esté vacío, etc etc), ponemos ERRORES a false
+          y en caso de que haya errores, lo ponemos a true. Así, en el siguiente if, solamente lanzaremos la
+          aplicación en caso de que NO haya errores
+        */
 				if (isset($_POST['nombre']) && empty($_POST['nombre']) == false ){
 					if(isset($_POST['contrasena']) && empty($_POST['contrasena']) == false){
 						if($longitudCon > 8){
@@ -31,8 +44,14 @@
 					$errores = true;
 				}
 
-			}
+			} //ENDIF Isset($_POST[enviar])
+
+
 			if(isset($_POST['enviar']) && $errores == false){
+        //Aquí se llama a la aplicación en caso de que el formulario esté de puta madre.
+
+				/*----------APLICACIÓN-----------*/
+
 				echo $_POST['nombre'];
 				echo "<br/>";
 				echo $_POST['contrasena'];
@@ -52,7 +71,14 @@
 
 					echo (implode($_POST['genero']));
 				}
-			}else{
+			} //Endif ISSET && ERRORES (Segunda o primera vez que se envía el formulario)
+
+      else{ //A partir de aquí está el Formulario
+
+        /*Dentro de cada uno de los input, hacemos una comprobación en caso
+        de que se haya enviado, y si se ha enviado anteriormente se hace un echo
+        con el valor de la variable. De esta forma, al reenviar en formulario no se pierden los
+        datos*/
 		?>
 				<h1>Identificación de usuario.</h1>
 				<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
@@ -119,7 +145,7 @@
 				</form>
 		<?php
 
-			}
+  } //Endelse
 		?>
 	</body>
 </html>

@@ -24,8 +24,13 @@
           Una vez ya sabemos que el formulario ha sido enviado, comprobamos si hay errores en
           los datos. En caso de que no haya ninguno, es decir (no esté vacío, etc etc), ponemos ERRORES a false
           y en caso de que haya errores, lo ponemos a true. Así, en el siguiente if, solamente lanzaremos la
-          aplicación en caso de que NO haya errores 
+          aplicación en caso de que NO haya errores
         */
+
+				/*
+					La validación es que la contraseña tenga más de ocho caracteres
+					Y que el nombre y la contraseña son obligatorios
+				*/
 				if (isset($_POST['nombre']) && empty($_POST['nombre']) == false ){
 					if(isset($_POST['contrasena']) && empty($_POST['contrasena']) == false){
 						if($longitudCon > 8){
@@ -44,30 +49,27 @@
 					$errores = true;
 				}
 
-			} //ENDIF Isset($_POST[enviar])
+				//CUANDO ESTÁ todo VALIDADO, EMPEZAMOS COOKIE
+				$nombre = "nombre";
+				$valor = $_POST['nombre'];
+				//Creamos la cookie
+
+
+				if (setcookie($nombre, $valor)) {
+				 //echo "Se ha creado la cookie ".$nombre." con valor: ".$valor;
+			 }
+				 else {
+					 echo "No se ha podido crear la cookie";
+				 }
+
+			} //ENDIF Isset($_POST[enviar]) VALIDAR END
 
 
 			if(isset($_POST['enviar']) && $errores == false){
         //Aquí se llama a la aplicación en caso de que el formulario esté de puta madre.
-				echo $_POST['nombre'];
-				echo "<br/>";
-				echo $_POST['contrasena'];
-				echo "<br/>";
+				/*----------APLICACIÓN-----------*/
+				include 'aplicacion.php';
 
-				if (isset($_POST['animal']) ){
-					$variable = $_POST['animal'];
-					echo (implode(",",$variable));
-					echo "<br/>";
-				}
-				if (isset($_POST['idioma']) ){
-
-					echo (implode(",",$_POST['idioma']));
-					echo "<br/>";
-				}
-				if (isset($_POST['genero']) ){
-
-					echo (implode($_POST['genero']));
-				}
 			} //Endif ISSET && ERRORES (Segunda o primera vez que se envía el formulario)
 
       else{ //A partir de aquí está el Formulario
@@ -86,56 +88,6 @@
 
 					<label for="id_password">Password : </label>
 					<input type="password" name="contrasena" id="id_password"/><br/>
-
-					<p>Marca el/los animales que tienes: </p>
-					<input type="checkbox" name="animal[]" value="perro" <?php
-						echo !empty($_POST['animal']) && in_array("perro",$_POST['animal'])?
-							'checked="checked"':"";?>/>Perro<br/>
-					<input type="checkbox" name="animal[]" value="gato" <?php
-						echo !empty($_POST['animal']) && in_array("gato",$_POST['animal'])?
-							'checked="checked"':"";?>/>Gato<br/>
-					<input type="checkbox" name="animal[]" value="conejo" <?php
-						echo !empty($_POST['animal']) && in_array("conejo",$_POST['animal'])?
-							'checked="checked"':"";?> />Conejo<br/>
-					<input type="checkbox" name="animal[]" value="pajaro" <?php
-						echo !empty($_POST['animal']) && in_array("pajaro",$_POST['animal'])?
-							'checked="checked"':"";?>/>Pajaro<br/>
-					<input type="checkbox" name="animal[]" value="otro" <?php
-						echo !empty($_POST['animal']) && in_array("otro",$_POST['animal'])?
-							'checked="checked"':"";?>/>Otro<br/>
-
-					<p>Marca el/los idiomas que conoces: </p>
-
-					<select name= "idioma[]" multiple="multiple">
-						<option value="in" <?php
-						echo !empty($_POST['idioma']) && in_array("in",$_POST['idioma'])?
-							'selected="selected"':"";?>>Ingles</option>
-						<option value="es" <?php
-						echo !empty($_POST['idioma']) && in_array("es",$_POST['idioma'])?
-							'selected="selected"':"";?>>Espaniol</option>
-						<option value="fr" <?php
-						echo !empty($_POST['idioma']) && in_array("fr",$_POST['idioma'])?
-							'selected="selected"':"";?>>Frances</option>
-						<option value="al" <?php
-						echo !empty($_POST['idioma']) && in_array("al",$_POST['idioma'])?
-							'selected="selected"':"";?>>Aleman</option>
-						<option value="it" <?php
-						echo !empty($_POST['idioma']) && in_array("it",$_POST['idioma'])?
-							'selected="selected"':"";?>>Italiano</option>
-					</select>
-
-					<br/>
-
-					<p>Marca tu género: </p>
-					<input type="radio" name="genero[]" value="mujer" <?php
-						echo !empty($_POST['genero']) && in_array("mujer",$_POST['genero'])?
-							'checked="checked"':"";?>/>Femenino<br/>
-					<input type="radio" name="genero[]" value="hombre" <?php
-						echo !empty($_POST['genero']) && in_array("hombre",$_POST['genero'])?
-							'checked="checked"':"";?>/>Masculino<br/>
-					<input type="radio" name="genero[]" value="otro" <?php
-						echo !empty($_POST['genero']) && in_array("otro",$_POST['genero'])?
-							'checked="checked"':"";?> />Otro<br/>
 					<br/>
 					<input name ="enviar" type="submit" value="Enviar"/>
 
