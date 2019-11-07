@@ -4,7 +4,7 @@
 
 	if (isset($_POST["enviar"])){	
 		if(empty($_POST["nombre"])|| empty($_POST["pass"])){	
-			echo " no has introducido todos los datos.<u><a href='formucoockie.html'>Click aquí para volver al formulario.</a></u>";
+			echo " no has introducido todos los datos.<u><a href='formucoockie.php'>Click aquí para volver al formulario.</a></u>";
 			}else{
 				$nombre= $_POST["nombre"];			
 				$pass= $_POST["pass"];
@@ -17,7 +17,7 @@
 					if(setcookie($nombre1,$valor,$f_expiracion)){
 					header ('Location:bienvenido.php');
 						}else{
-							echo "acceso denegado";
+							header ('Location:bienvenido.php');	
 						}
 				}else{
 					echo " contraseña no valida.<u><a href='formucoockie.php'>Click aquí para volver al formulario.</a></u>";
@@ -26,7 +26,7 @@
 	}else{
 ?>		
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-		<label for="id_nombre">Nombre :</label>
+		<label id="id_nombre">Nombre :</label>
 		<input type="text" name="nombre" value ="nombre"/><br/>
 		<label for="id_pass">Contraseña: </label>
 		<input type="password" name="pass"  id="id_pass"/><br>
