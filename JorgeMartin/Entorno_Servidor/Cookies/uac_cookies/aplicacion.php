@@ -7,13 +7,13 @@
   <body>
     <?php
 
-    public function SalirPagina()
-    {
-      // Primero borramos la cookie
-      setcookie('nombre', '', time()-1);
-      //Luego enviamos a la nueva pagina
-      //-----------NO SÉ CÓMO, PREGUNTAR------------
-    }
+      if (isset($_POST['submit'])) {
+        // Primero borramos la cookie
+        setcookie('nombre', '', time()-100);
+        //Luego enviamos a la nueva pagina
+        header("Location: login.php");
+        exit();
+      }
 
       //Damos la bienvenida en caso de que esté la cookie creada
         if (isset($_COOKIE['nombre'])) {
@@ -25,7 +25,7 @@
 
      ?>
      <br>
-     <form action="<?php echo SalirPagina();?>" method="post">
+     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
        <button type="submit" name="submit">Borrarcookie</button>
      </form>
 

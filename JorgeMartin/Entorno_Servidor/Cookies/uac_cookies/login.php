@@ -50,13 +50,13 @@
 				}
 
 				//CUANDO ESTÁ todo VALIDADO, EMPEZAMOS COOKIE
-				$nombre = "nombre";
+				$nombre = 'nombre';
 				$valor = $_POST['nombre'];
 				//Creamos la cookie
 
 
 				if (setcookie($nombre, $valor)) {
-				 //echo "Se ha creado la cookie ".$nombre." con valor: ".$valor;
+				 echo "Se ha creado la cookie ".$nombre." con valor: ".$valor;
 			 }
 				 else {
 					 echo "No se ha podido crear la cookie";
@@ -68,7 +68,8 @@
 			if(isset($_POST['enviar']) && $errores == false){
         //Aquí se llama a la aplicación en caso de que el formulario esté de puta madre.
 				/*----------APLICACIÓN-----------*/
-				include 'aplicacion.php';
+				header('Location: aplicacion.php');
+				exit();
 
 			} //Endif ISSET && ERRORES (Segunda o primera vez que se envía el formulario)
 
