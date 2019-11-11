@@ -1,0 +1,3 @@
+Programa que pida nombre de la cookie, nombre de la cookie, y numero de segundos que tiene de duracion la cookie
+
+Porgrama que en el <body onload="X"> cague en X el programa para que se inicie al cargar el body

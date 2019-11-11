@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>X</title>
+    <script type="text/javascript">{
+      var rand = 0;
+      function cambiaImagenes(){ //meter la imagen en un array
+        var imagenes = ["./imagenes/0.jpg","./imagenes/1.jpg","./imagenes/3.gif","./imagenes/3.jpg"];
+        if (rand>2) {
+          rand=0;
+        }else{
+          rand++;
+        }
+       document.images["imagen"].src = imagenes[rand];
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <img src="./imagenes/0.jpg" name="imagen" height="300px" width="300px" onclick="cambiaImagenes()"><br>
+  </body>
+</html>

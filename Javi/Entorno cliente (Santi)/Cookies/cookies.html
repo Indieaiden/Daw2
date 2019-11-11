@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hola k ase en entorno cliente</title>
+	</head>
+	<body>
+
+		<p>Ay mi cookie!</p>
+		<img src="../../images/cuqui.png" alt="amador">
+		<form class="" action="index.html" method="post">
+			<button type="button" onclick="escribeCookie()" name="ccookie">Crear Cookie</button>
+			<button type="button" name="bcookie">Borrar Cookie</button>
+			<button type="button" name="cvcookie">Cambiar valor de una Cookie</button>
+			<button type="button" onclick="muestraTodasCookie()" name="lcookie">Listado de Cookies</button>
+			<p></p>
+		</form>
+		<script type="text/javascript">
+		function escribeCookie(){//cookie con 3 valores
+		  //escribimos en document.cookie, rcordamos que los obligatorios son nombre y valor el resto se pueden guadar como opcionales.
+		  var nombre = toLowerCase(prompt("nombre de cookie"));
+		  var valor = prompt("valor de cookie");
+		  var caducidad = prompt("cuando quieres que caduque");
+		  document.cookie = nombre+" = "+valor+((caducidad==undefined)?"":caducidad.toGMTString);
+
+		}
+		function muestraTodasCookie(){
+			var miscookies = document.cookie.split(";");
+		  for (var i = 0; i < miscookies.length; i++) {
+		    alert(i+" - "+miscookies[i]+"\n");
+		  }
+		}
+		</script>
+
+	</body>
+</html>

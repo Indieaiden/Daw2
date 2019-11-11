@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>X</title>
+    <script type="text/javascript">{
+      function cambiaImagenes(){ //meter la imagen en un array
+        var imagenes = ["./imagenes/0.jpg","./imagenes/1.jpg","./imagenes/3.gif","./imagenes/3.jpg"];
+       var rand = Math.round(Math.random()*3);
+       document.images["imagen"].src = imagenes[rand]
+        }
+      }
+      setInterval("cambiaImagenes()",2000);
+    </script>
+  </head>
+  <body>
+    <img src="./imagenes/0.jpg" name="imagen" height="600px" width="600px">
+
+  </body>
+</html>
