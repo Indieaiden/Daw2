@@ -5,9 +5,15 @@
   <title>Lee cookie</title>
 </head>
 <body>
+
   <?php
   session_start();
+<<<<<<< HEAD
   if (isset($_SESSION["usuario"])) {
+=======
+
+  if (isset($_POST["go"])) {
+>>>>>>> b7e56b8a6dd3960d2d0661293f41d4313ddcae06
       echo "Bienvenidx ".$_SESSION["usuario"]." es un pacer tenerte de vuelta<br/>";
   }else{
     echo "Acceso Denegado<br/>";
