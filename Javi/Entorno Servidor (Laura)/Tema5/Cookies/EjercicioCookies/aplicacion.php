@@ -17,7 +17,7 @@
   }
   ?>
   <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-    <button type="submit" name="atrass">logout</button>
+    <button type="submit" name="atrass"><?php if (!empty($_COOKIE)){echo "logout";}else{echo "volver";} ?></button>
   </form>
 </body>
 </html>
