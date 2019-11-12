@@ -6,6 +6,7 @@
 </head>
 <body>
   <?php
+  session_start()
   if (isset($_COOKIE) && !empty($_COOKIE)) {//comprobamos si la cookie está creada
       echo "Bienvenidx ".$_COOKIE['usuario']." es un pacer tenerte de vuelta<br/>";
   }else{

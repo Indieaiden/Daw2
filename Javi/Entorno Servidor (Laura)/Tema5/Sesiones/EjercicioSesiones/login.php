@@ -14,8 +14,6 @@
 <body>
   <h2>Acceso de usuario</h2>
   <?php
-  session_start();
-  $token = uniqid();
   if (isset($_POST['go'])) {
     $user=$_POST["usuario"];
     $pwd=$_POST["pwd"];
@@ -25,6 +23,8 @@
       }
       echo "<h3 class=\"imp\">La contraseña debe de tener al menos 6 caracteres.</h3>";
     } else {
+      session_start();
+      $_SESSION["usuario"] = $_POST["usuario"];
       header("location: aplicacion.php");
     }
   }

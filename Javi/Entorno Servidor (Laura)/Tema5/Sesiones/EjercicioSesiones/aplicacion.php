@@ -6,17 +6,20 @@
 </head>
 <body>
   <?php
-  if (isset($_SESSION["go"])) {
-    echo "Bienvenidx ".$_COOKIE['usuario']." es un pacer tenerte de vuelta<br/>";
+  session_start();
+  if (isset($_SESSION["usuario"])) {
+      echo "Bienvenidx ".$_SESSION["usuario"]." es un pacer tenerte de vuelta<br/>";
   }else{
     echo "Acceso Denegado<br/>";
   }
   if (isset($_POST['atrass'])) {
+    setcookie('PHPSESSID','',time()-3600);
+    $_SESSION = array();
     header("Location: login.php");
   }
   ?>
   <form class="" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-    <button type="submit" name="atrass">logout</button>
+    <button type="submit" name="atrass"><?php if (!empty($_SESSION)){echo "logout";}else{echo "volver";} ?></button>
   </form>
 </body>
 </html>
