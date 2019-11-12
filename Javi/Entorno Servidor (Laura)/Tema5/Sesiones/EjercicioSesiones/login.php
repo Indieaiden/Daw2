@@ -14,17 +14,16 @@
 <body>
   <h2>Acceso de usuario</h2>
   <?php
-  session_start();
-  $token = uniqid();
   if (isset($_POST['go'])) {
     $user=$_POST["usuario"];
     $pwd=$_POST["pwd"];
     if (strlen($pwd) <= 5) {//valida si la contraseña tiene 6 caracteres
-      if (strlen($user)<5) {//valida si el nombre de usuario tiene 5 caracteres
-        echo "<h3 class=\"imp\">Ningun nombre de usuario tiene menos de 5 caracteres, revisalo.</h3>";
-      }
       echo "<h3 class=\"imp\">La contraseña debe de tener al menos 6 caracteres.</h3>";
+    } else if (strlen($user)<5) {//valida si el nombre de usuario tiene 5 caracteres
+      echo "<h3 class=\"imp\">Ningun nombre de usuario tiene menos de 5 caracteres, revisalo.</h3>";
     } else {
+      session_start();
+      $_SESSION["usuario"] = $_POST["usuario"];
       header("location: aplicacion.php");
     }
   }
