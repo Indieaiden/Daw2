@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      :root {
+        --padding-menu: 10px;
+      }
+
+      body {
+        /*Con esto quitamos el borde
+        del body que mete por defecto, de esta
+        forma queda pegado a la pantalla*/
+        margin: 0px;
+      }
+
+      .derecha {
+        background-color: lightblue;
+        width: calc(30% - var(--padding-menu) * 2);
+
+        /*Con esto hacemos que sea flotante.*/
+        float: left;
+
+        /*CSS, HTML etc está pensado para
+        que se calcule automáticamente. Si
+        ponemos la altura fija, los contenidos
+        se quedan fuera*/
+
+        /*height: 50px;*/
+
+        /*Deja de funcionar, se va abajo.
+        pasa también con el borde.*/
+        padding: var(--padding-menu);
+      }
+      /*Como son contenedores DIV, empiezan
+      uno detrás de otro en la línea siguiente*/
+      .izquierda {
+        background-color: pink;
+        /*Con la funcion calc hacemos las cuentas para que esto salga en condiciones y ocupe el 70%. */
+        width: calc(70% - var(--padding-menu) * 2);
+        /*height: 50px;*/
+        padding: var(--padding-menu);
+        float:left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="izquierda">
+  <h2>Panel UP</h2>
+  <p>Lorem ipsum non pariatur quod autem a voluptatem quasi totam voluptas.</p>
+</div>
+<div class="derecha">
+  <h2>Panel V*X</h2>
+</div>
+  </body>
+</html>
