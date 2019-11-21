@@ -1,0 +1,21 @@
+.fondo1 {
+  background-image: url("Zodiaco.jpg");
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+.fondo2 {
+  background-image: url("Galaxia.jpg");
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+.fondofijo {
+  background-image: url("GOD.png");
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  border: 1px solid black;
+}
