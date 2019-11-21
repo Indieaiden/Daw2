@@ -74,7 +74,21 @@ function importe_llamada(pLlamada){
 
 /*muestra (d.write) con un “for in” los nombres y valores de las
 propiedades de la llamada más cara*/
-function llamada_mas_cara(){}
+function llamada_mas_cara(){
+  var llamada_act = this.llamadas[0];
+  var resultado = ``;
+  for (e of this.llamadas) {
+    if (importe_llamada(llamada_act) < importe_llamada(e)){
+      llamada_act = e;
+    }
+  }
+for (var prob in llamada_act) {
+  if (llamada_act.hasOwnProperty(prob)) {
+       resultado += `${llamada_act}.${prob} = ${llamada_act[prob]}\n`;
+  }
+  document.write(resultado);
+}
+}
 
 //devuelve el nombre del país con más llamadas realizadas
 function pais_mas_llamado(){}
