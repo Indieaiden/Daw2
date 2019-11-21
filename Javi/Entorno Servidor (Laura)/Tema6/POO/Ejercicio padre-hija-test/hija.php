@@ -3,7 +3,7 @@
 }//Script para cambiar el titulo de la clase
 </script>
 <?php
-inlude_once(padre.php);
+include_once("padre.php");
 /**
  *
  */
@@ -11,7 +11,7 @@ class Tiendamusica extends FabricaDiscos{
   //propiedades
   Private $cantidadDiscos=0;
   Private $estiloDisco="Pop";
-  Private $tipocd="";
+  Private $tipocd= new FabricaDiscos();
 
 
   //Metodos
@@ -19,7 +19,7 @@ class Tiendamusica extends FabricaDiscos{
   function Tiendamusica($estiloMusica, $tock, $tipocd){
     this->$cantidadDiscos=$tock;
     this->$estiloDisco=$estiloMusica;
-    setMaterial($tipocd);
+    this->tipocd= tipocd.setMaterial($tipocd);
   }
   function getStock(){
     echo this->$cantidadDiscos;

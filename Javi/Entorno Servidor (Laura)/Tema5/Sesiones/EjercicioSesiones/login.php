@@ -14,6 +14,7 @@
 <body>
   <h2>Acceso de usuario</h2>
   <?php
+  session_start();
   if (isset($_POST['go'])) {
     $user=$_POST["usuario"];
     $pwd=$_POST["pwd"];
@@ -22,7 +23,6 @@
     } else if (strlen($user)<5) {//valida si el nombre de usuario tiene 5 caracteres
       echo "<h3 class=\"imp\">Ningun nombre de usuario tiene menos de 5 caracteres, revisalo.</h3>";
     } else {
-      session_start();
       $_SESSION["usuario"] = $_POST["usuario"];
       header("location: aplicacion.php");
     }

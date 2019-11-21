@@ -10,7 +10,7 @@ class FabricaDiscos{
     //constructor
     //Metodos
     function setMaterial($materialDisco){
-      this->material=$materialDisco;
+      this->$material=$materialDisco;
     }
     function getMaterial(){
       echo this->$material;
