@@ -1,0 +1,51 @@
+:root {
+  box-sizing: border-box;
+}
+/* Hacemos un inherit para que todo sea borderbox */
+* {
+  box-sizing: inherit;
+}
+
+nav {
+  /* Posicionamiento */
+  float: left;
+  height: 60vh;
+  width: 25vw;
+  margin: 5px;
+  /* Color, fondo */
+  border: 1px solid black;
+}
+
+header {
+  /* Posicionamiento */
+  height: 10vh;
+  width: 100vw;
+  margin: 5px;
+  /* Color, fondo */
+  border: 1px solid black;
+}
+
+.formulario {
+  /* Posicionamiento y tamaño */
+  height: 60vh;
+  width: 75vw;
+  margin: 5px;
+
+  border: 1px solid black;
+}
+
+footer {
+  /* Posicionamiento y tamaño */
+  position: relative;
+  bottom:0;
+  left:0;
+  clear: both;
+
+  height: 20vh;
+  width: 100vw;
+
+  margin: 5px;
+  /* Color y fondo */
+
+  border: 1px solid black;
+}
