@@ -14,7 +14,7 @@ function ponerCookie() {
 
 function encuentraCookie(nombre){
   var separador1 = new RegExp("; ", "g");
-  var separador2 = new RegExp("=", "g");
+  var separador2 = new RegExp("=", "g");9
   var foo = false;
   //Creamos un array de cookies separadas o algo así
   var cookies = document.cookie.split(separador1);
