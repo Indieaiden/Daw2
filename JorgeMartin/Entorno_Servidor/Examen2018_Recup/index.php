@@ -11,6 +11,14 @@
 		<?php
       include('funciones.php');
 			$errores;
+
+			function filtrado($datos){
+				$datos = trim($datos);//elimina espacios antes y después de los datos
+				$datos = stripslashes($datos);//elimina Backslashes
+				$datos = htmlspecialchars($datos);//traduce caracteres especiales en entidades html;
+				return $datos;
+			}
+
       /*
         Primero comprobamos si el formulario está enviado. En caso de que sí, entramos
         a hacer las comprobaciones pertinentes de nombre, contraseña etc etc. De esta forma,
@@ -25,7 +33,10 @@
           aplicación en caso de que NO haya errores
         */
 
-				$user_valid = validaUser($_POST['nombre'], $_POST['contrasena']);
+				$nombre = filtrado($_POST['nombre']);
+				$contrasena = filtrado($_POST['contrasena']);
+
+				$user_valid = validaUser($nombre, $contrasena);
 				$errores = false;
 				if ($user_valid == -1) {
 						echo "Usuario no registrado <br>";
@@ -51,9 +62,11 @@
 				if ( !isset( $_SESSION['usuario'] )){ // No está acreditado
 					$_SESSION['usuario']= $_REQUEST['nombre'];
 					$_SESSION['tipo']= $user_valid;
+				}
 
-				} else { //Sí está ya acreditado
-				header('Location: menu.php');
+				if (isset( $_SESSION['usuario'])) {
+					// code...
+					header('Location: menu.php');
 				}
 
 			} //Endif ISSET && ERRORES (Segunda o primera vez que se envía el formulario)

@@ -7,15 +7,15 @@
 
 
   function validaUser($login, $contrasena){
-    
+
     //Errores con DATETIME
 
     $usuario1 = array('contrasena' => 'admin',
-                     'expiracion' => new DateTime('2019-12-28'),
+                     'expiracion' => strtotime('2019-12-28'),
                      'tipo_user' => ADMINISTRADOR,);
 
     $usuario2 = array('contrasena' => 'user',
-                     'expiracion' => new DateTime('2019-12-30'),
+                     'expiracion' => strtotime('2019-12-30'),
                      'tipo_user' => REGISTRADO,);
 
     $users = array('Antonio' => $usuario1,
@@ -35,7 +35,7 @@
         }
 
 
-
+        $error;
 
   foreach ($users as $key => $value) {
     // Código kawaii comprobaciones
@@ -45,25 +45,24 @@
       // User EXISTE
       if ($value['contrasena'] == $contrasena) {
         //Contrasenia OK
-        $hoy = new Datetime('Y-m-d');
+        $hoy = strtotime(date('Y-m-d'));
         //Si es menor que cero es que se ha pasado porque se
         //resa el de la derecha con el de la izquierda
-        if ($hoy->diff($value['expiracion']<0)) {
-          return ERROR_EXPIRADO;
+        if ($value['expiracion'] < $hoy){
+          $error = ERROR_EXPIRADO;
         }
         else {
           //Si ha pasado por todo lo anterior, entonces
           //llega hasta aquí y todo OK
            return $value['tipo_user'];
         }
-      }
-      else {
-        return ERROR_PASSWORD;
+      } else {
+        $error = ERROR_PASSWORD;
       }
     } else {
-      // No existe el usuario
-      return ERROR_NOREGISTRADO;
+      $error = ERROR_NOREGISTRADO;
     }
   }
+  return $error;
 }
  ?>
