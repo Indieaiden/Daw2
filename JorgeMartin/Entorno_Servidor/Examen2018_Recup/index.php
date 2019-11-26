@@ -65,7 +65,6 @@
 				}
 
 				if (isset( $_SESSION['usuario'])) {
-					// code...
 					header('Location: menu.php');
 				}
 
