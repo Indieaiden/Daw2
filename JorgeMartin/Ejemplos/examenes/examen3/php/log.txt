@@ -1,0 +1,12 @@
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie lorena|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie jessi|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie pablo|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie lorena|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie jessi|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie pablo|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie lorena|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie jessi|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie pablo|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie lorena|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie jessi|Valor : 15|Opcion elegida: registroCookie|
+Nombre del ficheroC:\xampp\htdocs\examen3\php\registro_cookie.php|Lina17|Nombre de la cookie pablo|Valor : 15|Opcion elegida: registroCookie|
