@@ -42,6 +42,8 @@ function guardar(){
   // alert(radio.value);
   guardarCookie("radio", radio.value);
 
+  //Aqui guardo la cookie de la checkbox, sumando
+  //a la cadena el índice de las seleccionadas
   for (var i = 0; i < checkbox.length; i++) {
     if (checkbox[i].checked) {
     // alert(checkbox[i].value);
@@ -82,6 +84,9 @@ Cuando das ea enviar, antes de enviar los datos al servidor, tiene que checkear
 (Tiene que estar activado uno de los radios, los checkbox tiene que ser dos o tres)
 y además cuando se cargue la página, se tienen que leer las cookies y dejarte lo mismo
 que había cuando se dio a guardar.
+
+Añadir una lista desplegable <select> en la que se puedan seleccionar entre
+dos y tres valores.
 
 */
 
