@@ -1,0 +1,54 @@
+header{
+	width: 100vw;
+	height:100px;
+	background-color:red;
+	border:1px solid;
+
+}
+footer{
+	background:#58D3F7;
+	width: 100vw;
+	height: 20px;
+	border: 1px solid black;
+	text-align:center;
+}
+aside{
+	width: 25%;
+}
+#bloque{
+	width:100vw;
+	background-color:gray;
+	height: 100px;
+}
+
+.izda, .centro, .dcha {
+	border-bottom:1px solid black;
+	height:100%;
+	}
+.dcha {
+	float: left; 
+	background-color: blue;
+	border-left:1px black solid;
+	}
+.izda {
+	float: left; 
+	background: orange;
+	border-right:1px black solid;
+	border-left:1px black solid;
+	}
+.centro {
+	float:left;
+	background-color:yellow;
+	width: 49.6%
+}
+
+.formu1{
+	text-align:right;
+	padding: 20px;
+	margin-left:300px;
+	float:left;
+}
+.usu{
+	width:50vw;
+	float:left;
+}

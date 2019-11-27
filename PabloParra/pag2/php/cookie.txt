@@ -1,0 +1,34 @@
+fecha_exp;
+indice=0;
+for(i=0; i< documents.form[miformu].elements[caja].length;i++){
+	if(elemento){
+		indice=i;
+	}
+}
+guardar_cookie("radio","array[indice], fecha)
+
+cadena="";
+
+for...{
+
+	if(elemento en el array){
+		cadena+="S";
+	}else{
+		cadena+="n";
+	}
+}
+
+guardar_cookie("caja",cadena,fecha)
+
+---cargar---
+
+el_value_de_la_caja= leer_cookie("caja)
+
+indice= parseInt(leer_cookie("radio"));
+document.formu.elemento["edad"][indice].chequed="chequed"
+
+"NSSN"
+cadena= leer_cookie["caja"]
+para i= 0 hasta...
+	si el caracter i == S
+		document.formulario.element["caja"].chequed = chequed

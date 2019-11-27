@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Mi primera página html</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Mi primera página">
+		<meta name="author" content="Pablo">
+		<script type="text/javascript" src="formu.js"></script>
+		<script type="text/javascript" src="cookies_funciones.js"></script>
+	</head>
+	<body>
+		<form action="index.html" method="post" name="formul">
+			<label for="id_nombre">Nombre: </label>
+			<input type="text" name="nombre" id="id_nombre"/><br><br>
+			Sexo:<br>
+			<label for="id_hombre">Hombre</label>
+			<input type="radio" name="sexo" id="id_hombre" value="hombre"/>
+			<label for="id_hombre">Mujer</label>
+			<input type="radio" name="sexo" id="id_mujer" value="mujer"/>
+			<label for="id_hombre">Prefiero no responder</label>
+			<input type="radio" name="sexo" id="id_no_responde" value="no_responde"/><br><br>
+			MVP:<br>
+			<label for="id_lebron">LeBron James</label>
+			<input type="checkbox" name="mvp" id="id_lebron" value="lebron"/><br>
+			<label for="id_anteto">Giannis Antetokoumpo</label>
+			<input type="checkbox" name="mvp" id="id_anteto" value="anteto"/><br>
+			<label for="id_doncic">Luka Doncic</label>
+			<input type="checkbox" name="mvp" id="id_doncic" value="doncic"/><br>
+			<label for="id_harden">James Harden</label>
+			<input type="checkbox" name="mvp" id="id_harden" value="harden"/><br><br>
+			Necesario para ver la final:<br><br>
+			<select multiple name="productos">
+			   <option value="cerveza">Cerveza</option> 
+			   <option value="pizza">Pizza</option> 
+			   <option value="cola">Coca-Cola</option>
+			   <option value="camiseta">Camiseta NBA</option> 
+			   <option value="gorra">Gorra NBA</option>
+			</select><br><br>
+			<input type="submit" value="Enviar"/><input id="enviar" type="button" value="Guardar cookies"/>
+		</form>
+	</body>
+</html>
