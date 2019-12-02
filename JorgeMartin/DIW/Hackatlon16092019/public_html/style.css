@@ -1,0 +1,33 @@
+
+.header {
+    background-color: #052225;
+    padding: 60px;
+    text-align: center;
+    color: #e3f9fb;
+    font-size: 30px;
+}
+
+body {
+    background-color: #e3f9fb;
+}
+
+.carousel {
+    margin: 10px;
+    height: 500px; 
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagen {
+    display:none;   
+}
+
+img {
+    height: 500px; 
+    width: 800px; 
+}
+
+.footer {
+    
+}

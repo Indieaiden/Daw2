@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+       
+        
+        <title>Hackatlon: musica</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- -->
+        <div class="header">
+            <h1>Homenaje: FF OST</h1>
+        </div>
+        <div class="carousel">     
+        <div class="imagen">
+             <img src="Uem.jpg" alt="Uematsito"> 
+             <div class="texto_debajo_img">Nobuo Uematsu</div>
+        </div>
+        <div class="imagen">
+             <img src="arr.jpg" alt="A realm reborn"> 
+             <div class="texto_debajo_img">A Realm Reborn</div>
+        </div>
+        <div class="imagen">
+             <img src="heav.jpg" alt="Heavensword"> 
+             <div class="texto_debajo_img">Heavensward</div>
+        </div>
+            
+            <button class="boton-izquierda" 
+                    onclick="plusDivs(-1)">&#10094;</button>
+            <button class="boton-izquierda" 
+                    onclick="plusDivs(1)">&#10095;</button>
+            <script>
+                var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("imagen");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+        </div>
+        <div class ="footer">
+            <p> Para escuchar a Nobuo:
+                <a>Spoti</a>
+            </p>
+        </div>
+    </body>
+</html>
