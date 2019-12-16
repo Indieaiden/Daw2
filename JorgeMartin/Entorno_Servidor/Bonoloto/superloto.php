@@ -102,7 +102,9 @@
   // --------------------MAIN---------------------------
   //Si el formulario se envía por primera vez, entonces comprobamos, si
   //lo que se hace es dar "volver a jugar, entonces no comprobamos"
-   if (true) {
+
+  //comprobacion
+   if (comprobar()) {
     imprimirSuperloto();
    } else {
     comprobar();
@@ -117,7 +119,7 @@ También presentará un enlace al propio programa para generar nuevas lotos gana
 */
   function imprimirSuperloto()
   {
-
+    //Son dinamicos
     $numeros = array(0 => 0,
     1 => 0,
     2 => 0,
@@ -129,6 +131,7 @@ También presentará un enlace al propio programa para generar nuevas lotos gana
 
     while ($flag) {
       $auxiliar =  rand(1,49);
+      //Hacerlo con in array mas eficiente
       foreach ($numeros as $num) {
         // echo $num;
         // echo " -- ";
@@ -161,7 +164,7 @@ También presentará un enlace al propio programa para generar nuevas lotos gana
     sort($numeros);
     // CodigoHTML
  ?>
- <p style="text-align:center"> Enhorabuena usuario <?php echo NOMBRE ?> </p> <br>
+ <p style="text-align:center"> Enhorabuena usuario <?php echo $_REQUEST['nombre'] ?> </p> <br>
  <p>Su loto ganadora es: </p><br>
  <!-- El CSS está aquí pero no me apetece cambiarlo a otro sitio -->
  <style type="text/css">
