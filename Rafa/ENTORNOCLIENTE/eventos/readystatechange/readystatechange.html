@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+
+  <title>Pruebas Cookies</title>
+  <meta charset="UTF-8">
+  <meta name="author" content="Rafael">
+  <meta name="description" content="Mi primera página">
+  <script>
+
+  		document.addEventListener("readystatechange", cargarEventos,true);
+  		function cargarEventos(){
+  			document.getElementById("button").addEventListener("click",cambiaImagenes,false);
+
+  		}
+
+
+      var cont=1;
+	   function cambiaImagenes(evento){ 
+       var imagenes = ["../../images/images/1.jpg","../../images/images/1.jpg","../../images/images/2.jpg","../../images/images/3.jpg","../../images/images/4.jpg"];
+
+      if(cont>=5){cont=0;}
+      document.images["foto"].src = imagenes[cont];
+      cont++;
+      }
+
+
+
+
+</script>
+
+</head>
+
+<body>
+	<p>"La millor página del mondo"</p>
+
+  		<img src="../../images/images/0.jpg" name="foto" id="imagen" width="500" height="500" onclick="cambiaImagenes()">
+  	<button type="button" id="button" name="boton">No me hagas daño :(</button>
+</body>
+</html>
