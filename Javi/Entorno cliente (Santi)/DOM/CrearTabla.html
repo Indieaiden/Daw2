@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Crear tablas con js</title>
+  <style>
+    table{
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid black;
+    }
+    thead{
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>tablita</h1>
+  <table><!--Tabla 0-->
+    <thead>
+      <tr>
+        <td>Nombre</td>
+        <td>Apellido</td>
+        <td>Contraseña</td>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table><br>
+  <button type="button" name="button" onclick="insertarFila()">clicame</button>
+  <script type="text/javascript">{
+    function damefilas(numerotabla){
+      var mitabla = document.getElementsByTagName("table");
+      //ver cantidad de filas que tien ela tabla
+      var totalfilas = mitabla[numerotabla].rows.length;
+      document.write("Numero de filas de mi tabla: "+totalfilas+"<br>");
+    }
+    function damecolumnas(numerotabla){
+      var mitabla = document.getElementsByTagName("table");
+      //ver cantidad de columnas que tiene, desde el thead
+      //en este caso en rows tenemos que indicarle que fila tomamos de base para devolvernos la cantidad de columnas que contiene
+      var totalcolumnas = mitabla[numerotabla].rows[0].cells.length;
+      document.write("Numero de columnas de mi tabla: "+totalcolumnas+"<br>");
+    }
+    var mitabla = document.getElementsByTagName("table");
+    //ver cantidad de columnas que tiene, desde el thead
+    var columnassmitabla = mitabla[0].rows[0].cells.length;// 3
+    //ver cantidad de filas que tien ela tabla
+    var filasmitabla = mitabla[0].rows.length;
+    //añadir una columna con contenido;
+
+    mitabla[0].rows[0].insertCell(columnassmitabla);//+1 td a todas las tablas
+    mitabla[0].rows[0].cells[columnassmitabla].innerHTML = "DNI";
+
+    function insertarFila(){
+
+      var filastabla = document.getElementsByTagName("table")[0].rows.length;
+      var columnastabla = document.getElementsByTagName("table")[0].rows[0].cells.length;
+
+      mitabla[0].insertRow(filastabla);//<tr>
+      for (var i = 0; i < columnastabla; i++) {
+        mitabla[0].rows[filastabla].insertCell(i);//<td>
+        mitabla[0].rows[filastabla].cells[i].innerHTML = prompt("valor "+i+" de la fila");// i </td>
+      }
+    }
+
+    damefilas(0);
+    damecolumnas(0);
+  }
+</script>
+</body>
+</html>

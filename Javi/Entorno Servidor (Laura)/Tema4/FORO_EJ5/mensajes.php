@@ -14,52 +14,49 @@
 </head>
 <body>
   <?php
+  $error = false;
+  $mserror;
   if (isset($_POST["mensajes"])) {
-    if(!(strlen($_POST["pwd"])<=4)) {
-      if($_POST["pwd"]==strrev($_POST["usuario"])){
-          ?>
-          <input type="hidden" name="usuario" value="<?php echo $_POST["usuario"] ;?>">
-          <input type="hidden" name="pwd" value="<?php echo $_POST["pwd"] ;?>">
-          <form class="form" action="zzz.php" method="post">
-            <table>
-              <caption>BIENVENIDO AL FORO USUARIO <?php echo "ID: ".strlen($_POST["pwd"]).((strlen($_POST["pwd"])*2)+strlen($_POST["usuario"])*3) ?><br></caption>
-              <tr>
-                <td colspan="3"><p>por favor, indique el tema sobre el que realiza<br>su comentario, gracias.</p></td>
-              </tr>
-              <tr>
-                <td><label class="label" >Tema:</label></td>
-                <td><input type="text" name="titulo" placeholder="Nombre de usario"></td>
-              </tr>
-              <tr>
-                <td colspan="3"><textarea name="texto"  placeholder="Escribe tu comentario aquí" rows="3" cols="38"></textarea></td>
-              </tr>
-              <tr>
-                <td> <input type="submit" name="send" value="Envio"></td>
-                <td> <input type="reset" name="delete" value="Nueva Opinion"></td>
-                <td> <input type="submit" name="logout" value="Terminar"></td>
-              </tr>
-            </table>
-          </form>
-          <?php
-      }else{
-        ?>
-        <h3 class="imp">Contraseña errónea</h3>
-        <h4>Por favor, vuelva al inicio de sesión e intentelo de nuevo</h4>
-        <form class="backform" action="login.php" method="post">
-          <input type="submit" name="backlogin" value="Volver">
-        </form>
-        <?php
-      }
-    }else{
-      ?>
-      <h3 class="imp">Constraseña demasiado corta</h3>
-      <h4>Debe de tener al menos 5 caracteres.</h4>
-      <h4>Por favor, vuelva al inicio de sesión e intentelo de nuevo</h4>
-      <form class="backform" action="login.php" method="post">
-        <input type="submit" name="backlogin" value="Volver">
-      </form>
-      <?php
+    if($_POST["pwd"]==strrev($_POST["usuario"])){
+      $error=true;
+      $mserror = "<h3 class=\"imp\">Contraseña errónea</h3>";
     }
+    if(strlen($_POST["pwd"])<=4) {
+      $error=true;
+      $mserror = "<h3 class=\"imp\">Contraseña demasiado corta</h3>";
+    }
+  }
+
+  if (isset($_POST["mensajes"]) && $error==false) {
+    ?>
+    <input type="hidden" name="usuario" value="<?php echo $_POST["usuario"] ;?>">
+    <input type="hidden" name="pwd" value="<?php echo $_POST["pwd"] ;?>">
+    <form class="form" action="zzz.php" method="post">
+      <table>
+        <caption>BIENVENIDO AL FORO USUARIO <?php echo "ID: ".strlen($_POST["pwd"]).((strlen($_POST["pwd"])*2)+strlen($_POST["usuario"])*3) ?><br></caption>
+        <tr>
+          <td colspan="3"><p>por favor, indique el tema sobre el que realiza<br>su comentario, gracias.</p></td>
+        </tr>
+        <tr>
+          <td><label class="label" >Tema:</label></td>
+          <td><input type="text" name="titulo" placeholder="Nombre de usario"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><textarea name="texto"  placeholder="Escribe tu comentario aquí" rows="3" cols="38"></textarea></td>
+        </tr>
+        <tr>
+          <td> <input type="submit" name="send" value="Envio"></td>
+          <td> <input type="reset" name="delete" value="Nueva Opinion"></td>
+          <td> <input type="submit" name="logout" value="Terminar"></td>
+        </tr>
+      </table>
+    </form>
+    <?php
+  }else{
+    echo "$mserror";
+    ?>
+    <a href="login.php">Volver</a>
+    <?php
   }
   ?>
 </body>

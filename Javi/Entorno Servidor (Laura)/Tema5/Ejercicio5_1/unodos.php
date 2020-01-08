@@ -47,7 +47,7 @@
             <option value="Verde">Verde</option>
             <option value="Amarillo">Amarillo</option>
           </select ><br><br>
-          <select multiple="multiple" name="tipocolor[]">
+          <select multiple="multiple" name="tipocolor[]" required="required">
             <option  value="Claro">Claro</option>
             <option  value="Chillón">Chillon</option>
             <option  value="Oscuro">Oscura</option>

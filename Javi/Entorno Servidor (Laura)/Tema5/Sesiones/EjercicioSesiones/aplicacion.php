@@ -15,7 +15,8 @@
   }
   if (isset($_POST['atrass'])) {
     setcookie('PHPSESSID','',time()-3600);
-    $_SESSION = array();
+    unset($_SESSION['usuario']);
+    session_destroy();
     header("Location: login.php");
   }
   ?>

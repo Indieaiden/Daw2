@@ -3,14 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Pracrica form clse</title>
-    <script type="text/javascript" src="practica1.js">
+    <script type="text/javascript" src="./practica1.js">
 
     </script>
   </head>
   <body>
     <form id="form1" action="#" method="post" name="formulario">
-      <h4>Buenas, dime quien eres</h4>
-      <input type="text" name="nombre" placeholder="nombre...">
       <h4>Dí tu sexo</h4>
       <input type="radio" name="sexo" value="0" checked>No especificado<br>
       <input type="radio" name="sexo" value="1">Hombre<br>
@@ -19,9 +17,17 @@
       <input type="checkbox" name="aficiones" value="0">Correr<br>
       <input type="checkbox" name="aficiones" value="1">Bicicleta<br>
       <input type="checkbox" name="aficiones" value="2">Escalada<br>
-      <input type="checkbox" name="aficiones" value="3">Submarinismo<br><br>
-      <button type="button" name="guardar">Enviar</button>
-      <button type="button" name="submit">Guradar</button>
+      <input type="checkbox" name="aficiones" value="3">Submarinismo<br>
+      <h4>Dí de 1 a 3 mascotas que tendrías</h4>
+      <select clase="fomMascotas"name="mascota" size="5" multiple>
+        <option value="0">Perro</option>
+        <option value="1">Gato</option>
+        <option value="2">Huron</option>
+        <option value="3">Conejo</option>
+        <option value="4">Pollo</option>
+      </select><br><br>
+      <button type="button" name="guardar" class="guardarForm">Guardar</button>
+      <button type="button" name="submit">Enviar</button>
       <!--etiqueta form <form onsubmit="return validar()">-->
     </form>
   </body>

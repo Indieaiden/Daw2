@@ -1,0 +1,8 @@
+//conexion
+
+
+//Operacion
+
+//Procesar datos
+
+//Cerrar la conexion
