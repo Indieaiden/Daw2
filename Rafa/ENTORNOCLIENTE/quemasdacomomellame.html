@@ -1,0 +1,64 @@
+<!--caja texto, imput tipo radio (3), checkbox cuatro elementos (4), boton guardar que permitirá guardar en cookies 
+el contenido del formulario y un boton enviar que enviara los datos del formulario solamente si se ha activado uno 
+de los radio button y 2 o 3 checkbox solamente. 
+Además al cargar la página el formulario cogerá los valores guardados en las cookies
+-->
+
+
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+	  	<title>Formulario ECLIENTE</title>
+	  	<meta charset="UTF-8">
+	  	<meta name="author" content="Rafael">
+	  	<meta name="description" content="Mi primera pagina">
+	  
+   </head>
+   
+   <body>
+	   	
+				<button type="button" onclick="aniadeTablaDinamica()">Crea tabla dinamica</button>
+
+			<script type="text/javascript">
+						
+				function aniadeTablaDinamica(){
+					var numTr= prompt("Cuantas filas quieres");
+					var numTd= prompt("Cuantas columnas quieres");
+
+					var tabla= document.createElement("table");
+					document.body.appendChild(tabla);
+
+					var thead= document.createElement("thead");
+					var textoCabecera= document.createTextNode("Cabecera tabla dinamica");
+
+					tabla.appendChild(thead);
+
+					//var tbody= document.createElement("tbody");
+				
+					
+					for (var i = 0; i < numTr; i++) {
+						var ntr = document.createElement("tr");
+							for (var j = 0; j < numTd; j++) {
+								var ntd = document.createElement("td");
+								var ncontenidotd= document.createTextNode("A");
+								ntd.appendChild(ncontenidotd);
+								ntr.appendChild(ntd);
+								if(i==0){
+									thead.appendChild(ntr);
+								}
+							}
+						tabla.appendChild(thead);
+
+						tabla.appendChild(ntr);
+					}
+					document.body.appendChild(tabla);
+				}
+				
+
+			</script>
+
+
+
+		</body>
+</html>
