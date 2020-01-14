@@ -15,10 +15,9 @@ document.addEventListener("readystatechange",cargareventos,false);//imprescindib
 function cargareventos(){
   alert(document.readyState);
   if (document.readyState=="interactive") {
-    //document.getElementById("form1").addEventListener("readystatechange",leerCookie,false);
-    document.getElementsByName("guardarForm").addEventListener("click",guardaCookie,false);//escucha el boton guardar para hacer la funcion
-    //document.getElementById("submit").addEventListener("click",validar,false);//escucha el boton submit para hacer la funcion correspondiente
-    document.getElementsByName("mascota").addEventListener("click",validarlista,false);
+    document.getElementById("form1").addEventListener("readystatechange",leerCookie,false);
+    document.getElementById("guardar").addEventListener("click",guardaCookie,false);//escucha el boton guardar para hacer la funcion
+    document.getElementById("submit").addEventListener("click",validar,false);//escucha el boton submit para hacer la funcion correspondiente
     rellenarFormulario();
   }
 }
@@ -30,9 +29,17 @@ function validarlista(lista){
 }
 
 function guardaCookie(){ //meter las datos en un acookie
-
-  alert (aficiones);
+  var sexo = document.forms["formulario"]["sexo"].value;//adquiere el valor del radio seleccionado
+  var aficiones = "";
+  if (!empty(document.forms["formulario"].elements["aficiones"])) {
+    for (var i = 0; i < document.forms["formulario"].elements["aficiones"].length; i++) {
+      if (document.forms["formulario"].elements["aficiones"][i].checked) {
+        aficiones += (document.forms["formulario"].elements["aficiones"][i].value);
+      }
+    }
+  }
   alert (sexo);
+  alert (aficiones);
 //  document.cookie="sexo="+sexo;
 //  document.cookie="aficiones"=aficiones;
 
