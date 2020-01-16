@@ -19,5 +19,14 @@ function enviarRecibir(evento){
     }
   };
   peticion.open("GET","./ajax.php",true);//llamamos al archivo ( Metodo , URL-del-Archivo , true)
-  peticion.send();//mete el archivo
+  peticion.send(null);//mete el archivo
+
+  var rollo = document.getElementsByName("init")[0].value;
+
+  var listaCookies = document.cookie.split(";");
+  var sepn = listaCookies[0].split("=");
+  var nombres = sepn[1].split("%2C");//lista de nombres
+  var sepa = listaCookies[1].split("=");
+  var apellidos = sepa[1].split("%2C");//lista de apellidos
+  alert(rollo);
 }
