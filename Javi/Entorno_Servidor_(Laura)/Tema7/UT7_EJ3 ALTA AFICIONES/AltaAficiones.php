@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <title>Alta de aficiones</title>
-  <style media="screen">
-  table{
-    border: 1px solid black;
-    margin: auto;
-  }
-  .af{
-    text-align: center;
-  }
-  input.cta{
-    padding: 10px 24px;
-    border-radius: 50%;
-    border: 1px solid red;
-    outline: none;
-  }
-  input.cta:hover {
-    background-color: red; /* Green */
-    border: 1px solid black;
-    color: white;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
 
-  }
-  </style>
-</head>
-<body>
   <!--Realizar una página php, para dar de alta las aficiones de una persona.
   Los campos del formulario serán:
   login: campo de edición.
@@ -39,9 +10,14 @@
   - Insertar las aficiones de ese usuario utilizando una sentencia preparada.
   - Mostrar un mensaje al usuario informando que se ha creado correctamente.-->
   <?php
+  include("header.php");
+  include("footer.php");
+
+  creaHeader();
+
   function filtrado($datos){
     $datos= trim($datos); //Elimina espacios antes y despues
-    $datos= stripslashes($datos); //Elimina \ para que no te joda el codigo
+    $datos= stripslashes($datos); //Elimina \ para que no te fastidie el codigo
     $datos= htmlspecialchars($datos); //Transforma caracteres especiales para que se lean en HTML
     return $datos;
   }
@@ -88,6 +64,5 @@
 
     ?><h1>yay!</h1> <?php
   }
+  creaFooter();
    ?>
-</body>
-</html>
