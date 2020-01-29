@@ -1,0 +1,20 @@
+table{
+  border: 1px solid black;
+  margin: auto;
+}
+.af{
+  text-align: center;
+}
+input.cta{
+  padding: 10px 24px;
+  border-radius: 50%;
+  border: 1px solid red;
+  outline: none;
+}
+input.cta:hover {
+  background-color: red; /* Green */
+  border: 1px solid black;
+  color: white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}

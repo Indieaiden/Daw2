@@ -1,0 +1,16 @@
+body{
+  background-color: #ccffff;
+}
+td{
+  border:1px dotted black;
+}
+div{
+  background-color: white;
+  display:inline-block;/*Si no, no se ajusta el margin*/
+  margin: auto;
+  text-align:center;
+  border: 3px solid orange;
+}
+.thead{
+  background-color: tomato;
+}

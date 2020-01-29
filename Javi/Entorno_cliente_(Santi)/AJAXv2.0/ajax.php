@@ -5,7 +5,9 @@ $apellidos = array("Fernandez","Ruiz","Beleña","Parra","Pavel");
 function tabla(){
   GLOBAL $nombres;
   GLOBAL $apellidos;
-
+  $init = $_GET["init"]-1;
+  $fin = $_GET["end"];
+  
 
   echo "<table>";
   echo "<tbody>";
@@ -14,7 +16,7 @@ function tabla(){
   echo "<td class=\"thead\">Apellido</td>";
   echo "</tr>";
   for ($i=0; $i < 1; $i++) {
-    for ($k=$_GET["init"]-1; $k < $_GET["end"]; $k++) {
+    for ($k=$init; $k < $fin; $k++) {
       echo "<tr>";
       echo "<td>".$nombres[$k]."</td>";
       echo "<td>".$apellidos[$k]."</td>";
