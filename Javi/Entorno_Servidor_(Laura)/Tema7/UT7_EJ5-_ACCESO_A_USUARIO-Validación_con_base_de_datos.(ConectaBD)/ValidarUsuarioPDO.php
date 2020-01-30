@@ -21,7 +21,7 @@ class conectaBD{
     try {
       $qer = $this->conexion->query($orden);
       $filas=array();
-      $qer->setFetchMode(PDO::FETCH_ASSOC);
+      $qer->setFetchMode(PDO::FETCH_ASSOC);//Establece el modo de obtención para esta sentencia (Clase PDO )
       while ( $rowss = $qer->fetch() )
       $filas[]=$rowss;
       return $filas;

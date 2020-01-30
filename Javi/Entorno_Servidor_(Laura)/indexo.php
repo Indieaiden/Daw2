@@ -13,6 +13,7 @@ require("./header.php");
 	<li><a href=".\Tema7">Tema7<a></li>
 	<li><a href=".\Tema8">Tema8<a></li>
 	<li><a href=".\Tema9">Tema9<a></li>
+	<li><a href=".\Tema10">Tema10<a></li>
 	<br>
 	<form class="" action="index.html" method="post">
 			<button type="submit" name="Atras" value="volver" formaction="http://localhost/indexo.php">Volver</button>

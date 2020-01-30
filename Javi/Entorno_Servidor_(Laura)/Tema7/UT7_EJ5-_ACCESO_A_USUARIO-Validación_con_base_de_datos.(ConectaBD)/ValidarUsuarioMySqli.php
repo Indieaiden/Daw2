@@ -1,6 +1,50 @@
-
-
 <?php
+class conectaBD{
+  protected $conexion;
+  function __construct(){//Instancia para ooder establecer una conexion pdo
+    $host = '127.0.0.1';
+    $username='javier';
+    $password ='Nohay2sin3';
+    $bbdd = "dwes";
+    try{
+      $this->conexion = new mysqli($host, $username, $password, $bbdd);//intenta iniciar la conexion
+    }catch ( mysqli_sql_exception $e){//excepcion!
+      die( "¡Error!: " . $e->getMessage() . "<br/>");//si falla, para la ejecucion
+    }
+  }//fin __construct
+  public function __destruct(){ // Cierra conexión asignándole valor null
+    $this->conexion = null;
+  }
+  public function getConBD() {
+    return $this->conexion;
+  }
+  public function consulta1($orden){ // Ejecuta consulta y devuelve array de resultados o FALSE sí falla ejecución
+    try {
+      $fila=array();
+      $qer = $this->conexion->query($orden);
+      $qer-> data_seek(0);
+      for ($i=0; $i < $numfilas; $i++) {
+        $fila = $qer->fetch_assoc();
+      }
+    } catch ( mysqli_sql_exception $e) {
+      echo ( "¡Error! al ejecutar consulta: " . $e->getMessage() . "<br/>");
+      return false;
+    }
+  }
+  public function consulta2($orden){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
+    $fila=array();
+    $qer = $this->conexion->query($orden);
+    if( $qer !== false) {
+      $numfilas = $this->conexion->affected_rows;
+      $qer-> data_seek(0);
+      for ($i=0; $i < $numfilas; $i++) {
+        $fila = $qer->fetch_assoc();
+      }
+      return $fila;
+    }
+  }
+}
+
 function filtrado($datos){
   $datos= trim($datos); //Elimina espacios antes y despues
   $datos= stripslashes($datos); //Elimina \ para que no te joda el codigo
@@ -15,16 +59,16 @@ if (isset($_POST["Enviar"])) {
 
   //Procesar consulta
 
-  $Id = new mysqli("127.0.0.1", "javier", "Nohay2sin3", "dwes");
-  $consulta = $id->query("SELECT * FROM usuario where login='$user' AND clave='$pwd'");//ascendente
-  $numfilas = $consulta->num_rows;
+  $Id = new conectaBD();
+  $consulta = $Id->consulta2("SELECT * from usuario where login='$user' AND clave='$pwd'");//ascendente
 
-  if (!$numfilas==1) {
+  if (!$consulta==1) {
     echo "ACESSO DENEGADO";
   }else{
     echo "BIENVENID@ ".$user;
   }
   ?>
+  <br>
   <a href="<?php $_SERVER["PHP_SELF"]; ?>">Volver</a>
   <?php
 
@@ -40,16 +84,14 @@ if (isset($_POST["Enviar"])) {
 
 
   <?php
-  $id = new mysqli("127.0.0.1", "root", "", "dwes");
-  $id->real_query("SELECT * FROM usuario");//ascendente
-  $result = $id->store_result();
+  //Consultita para tener los usuarios siempre visibles para tesst
+  $Id = new mysqli("127.0.0.1", "javier", "Nohay2sin3", "dwes");
+  $Id->real_query("SELECT * FROM usuario");//ascendente
+  $result = $Id->store_result();
   while ($fila = $result->fetch_assoc()) {
-    echo " usuario = " . $fila['login'] . "<br>";
-    echo " pwd = " . $fila['clave'] . "<br>";
+    echo " usuario = ".$fila['login']."<br>";
+    echo " pwd = ".$fila['clave']."<br>";
   }
 }
-
-
-
 
 ?>

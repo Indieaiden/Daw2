@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      document.addEventListener("readystatechange",eventoss,false);//imprescindible
+      //lo de arriba hace que la pagina este a la escucha de eventos de la funcion que le pasemos
+      function eventoss(){
+        document.getElementsByClassName("abuelo")[0].addEventListener("click",function(){alert("Clic en Abuelo");},true);
+        document.getElementsByClassName("padre")[0].addEventListener("click",function(){alert ("Clic en Padre");},false);
+        document.getElementsByClassName("hijo")[0].addEventListener("click",function(){alert ("Clic en Hijo");},false);
+        document.getElementsByTagName("body")[0].addEventListener("click",function(){alert ("Clic en Body");},false);
+        document.addEventListener("click",function(){alert ("Clic en Document");},false);
+      }
+
+    </script>
+    <style>
+      .abuelo{
+        background: yellow;
+      }
+      .padre{
+        background: orange;
+      }
+      .hijo{
+        background: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="abuelo">
+      Abuelo
+      <div class="padre">
+        Padre
+        <div class="hijo">
+          Hijo
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
