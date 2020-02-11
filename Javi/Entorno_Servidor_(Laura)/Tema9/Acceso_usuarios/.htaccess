@@ -1,0 +1,5 @@
+AuthName "contenido restringido"
+AuthType basic
+AuthUserFile C:/xampp/htdocs/Daw2/Javi/Entorno_Servidor_(Laura)/Tema9/hash/usuarios
+
+Require valid-user

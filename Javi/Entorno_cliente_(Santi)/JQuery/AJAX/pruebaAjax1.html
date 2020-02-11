@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>Ejemplo 1 de Ajax</title>
+  <style media="screen">
+  td{
+    border:1px solid black;
+  }
+  div{
+    background-color: white;
+    display:inline-block;/*Si no, no se ajusta el margin*/
+    margin: auto;
+    text-align:center;
+    border: 3px solid orange;
+  }
+  .thead{
+    background-color: tomato;
+  }
+  </style>
+  <script src="../JQuery/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script>
+    $(document).ready(function(){
+      $("#linktabla").click(function(evento){
+        evento.preventDefault();//quita la accion por defecto
+        $("#receptor").load("ajax.php");//hace que cargue la página
+      });
+    })
+  </script>
+</head>
+<body>
+  <a href="#" id="linktabla">Clicame!!</a>
+  <br>
+  <div id="receptor">
+    <p>Aqui aprecera la tabla</p>
+  </div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <?php
 class conectaBD{
-  protected $conexion;
+  private $conexion;
   function __construct(){//Instancia para ooder establecer una conexion pdo
     $dsn = 'mysql:host=localhost;dbname=dwes;charset=utf8';
     $username='javier';
@@ -41,6 +41,19 @@ class conectaBD{
     }
     return $filas;
   }
+  //
+  public function actualizaTabla($orden){//realiza update y devuelve false si no se puede ejecutar la consulta
+    try {
+      $qer = $this->conexion->query($orden);
+      $qer ->execute();
+    } catch (PDOException $e) {
+      echo "Error al actualizar los datos: " . $conexion->error;
+      return false
+    }
+  }
+//  public function introduceDatos($orden){
+//
+//  }
 }
 
 function filtrado($datos){

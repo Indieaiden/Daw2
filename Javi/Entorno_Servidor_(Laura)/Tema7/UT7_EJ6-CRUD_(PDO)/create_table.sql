@@ -1,5 +1,6 @@
 CREATE Table salario (
-id_puesto int PRIMARY KEY,
-nombre_puesto varchar(30),
-sueldo_puesto int(4.2)
+dni_empleado varchar(10) PRIMARY KEY,
+nombre_empleado varchar(50),
+puesto_empleado varchar(30),
+sueldo_empleado dec(6,2)
 );

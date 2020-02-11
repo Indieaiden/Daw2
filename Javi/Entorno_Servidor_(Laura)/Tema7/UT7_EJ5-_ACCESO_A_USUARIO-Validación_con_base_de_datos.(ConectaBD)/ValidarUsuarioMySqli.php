@@ -1,6 +1,6 @@
 <?php
 class conectaBD{
-  protected $conexion;
+  private $conexion;
   function __construct(){//Instancia para ooder establecer una conexion pdo
     $host = '127.0.0.1';
     $username='javier';
