@@ -1,10 +1,10 @@
 <?php
-class conectaBD{
+class ConectaBDSingleton{
   private $conexion;
   private static $instancia;
   private function __construct(){//Instancia para ooder establecer una conexion pdo
     $dsn = 'mysql:host=localhost;dbname=dwes;charset=utf8';
-    $username='javier';
+    $username='manager';
     $password ='Nohay2sin3';
     try{
       $this->conexion = new PDO( $dsn, $username, $password );//intenta iniciar la conexion
@@ -24,9 +24,6 @@ class conectaBD{
   }
   public function __clone(){ // Evita que el objeto se pueda clonar{
     trigger_error('La clonación  no está permitida', E_USER_ERROR);
-  }
-  public function getConBD() {
-    return $this->conexion;
   }
   public function consulta1($orden){ // Ejecuta consulta y devuelve array de resultados o FALSE sí falla ejecución
     try {
@@ -52,59 +49,9 @@ class conectaBD{
     }
     return $filas;
   }
-}
-function filtrado($datos){
-  $datos= trim($datos); //Elimina espacios antes y despues
-  $datos= stripslashes($datos); //Elimina \ para que no te joda el codigo
-  $datos= htmlspecialchars($datos); //Transforma caracteres especiales para que se lean en HTML
-  return $datos;
-}
-
-
-
-//EJERCICIO CONECTA DB
-
-
-
-if (isset($_POST["Enviar"])) {
-  $user = filtrado($_POST["usuario"]);
-  $pwd = filtrado($_POST["contrasenia"]);
-  $isuser = false;
-
-  //Procesar consulta
-
-  $Id = conectaBD::singleton();
-  $consulta = $Id->consulta2("SELECT * from usuario where login='$user' AND clave='$pwd'");//ascendente
-
-  if (!$consulta==1) {
-    echo "ACESSO DENEGADO";
-  }else{
-    echo "BIENVENID@ ".$user;
-  }
-  ?>
-  <br>
-  <a href="<?php $_SERVER["PHP_SELF"]; ?>">Volver</a>
-  <?php
-
-}else{
-  ?>
-  <form action="<?php $_SERVER["PHP_SELF"]; ?>" method="post">
-    <label for="usuario">USUARIO: </label>
-    <input type="text" name="usuario" placeholder="nombre de usuario"><br>
-    <label for="contrasenia">CONTRASEÑA: </label>
-    <input type="password" name="contrasenia" placeholder="Contraseña de usuario"><br>
-    <input type="submit" name="Enviar" value="Enviar">
-  </form>
-
-
-  <?php
-  //Consultita para tener los usuarios siempre visibles para tesst
-  $Id = new mysqli("127.0.0.1", "javier", "Nohay2sin3", "dwes");
-  $Id->real_query("SELECT * FROM usuario");//ascendente
-  $result = $Id->store_result();
-  while ($fila = $result->fetch_assoc()) {
-    echo " usuario = ".$fila['login']."<br>";
-    echo " pwd = ".$fila['clave']."<br>";
-  }
+  //
+  //  public function introduceDatos($orden){
+  //
+  //  }
 }
 ?>

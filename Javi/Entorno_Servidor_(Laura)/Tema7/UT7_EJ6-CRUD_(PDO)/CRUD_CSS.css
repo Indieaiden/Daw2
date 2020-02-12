@@ -1,0 +1,39 @@
+body{
+  background-color: moccasin;
+}
+table{
+  width: 60%;
+  margin-left:auto;
+  margin-right:auto;
+}
+body{
+  text-align: center;
+}
+thead th.cabeceratabla{
+  border: 1px dotted black;
+  background-color: hotpink;
+}
+tbody td{
+  border: 1px solid black;
+}
+tbody td.contenido{
+  background-color: orange;
+}
+table td.vacio, thead th.vacio{
+	border:0;
+}
+[type=button],[type=submit]{
+  border: 1px solid grey;
+  border-radius: 10px;
+  outline: none;
+}
+#borrar:hover{
+  background-color: red;
+  color: white;
+}
+#act:hover{
+  background-color: yellow;
+}
+#aniadir:hover{
+  background-color: lightgreen;
+}
