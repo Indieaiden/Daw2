@@ -31,9 +31,21 @@ table td.vacio, thead th.vacio{
   background-color: red;
   color: white;
 }
+#borrar:active{
+  background-color: black;
+  color: red;
+}
 #act:hover{
   background-color: yellow;
 }
-#aniadir:hover{
+#act:active{
+  background-color: black;
+  color: yellow;
+}
+#aniadir:hover, #acttot:hover{
   background-color: lightgreen;
+}
+#aniadir:active , #acttot:active{
+  background-color: black;
+  color: lightgreen;
 }

@@ -15,7 +15,7 @@ $cone = ConectaBDSingleton::singleton();//reutilizamos la conexion singleton par
 
 if (!empty($_POST['acttot'])) {
   $primaryKey = Filtrado::filtrado(strtolower($_POST['dni']));
-  $nombre = Filtrado::filtrado(ucfirst($_POST['nombre']));
+  $nombre = Filtrado::filtrado(ucfirst(strtolower($_POST['nombre'])));
   $puesto = Filtrado::filtrado($_POST['puesto']);
   $sueldo = Filtrado::filtrado($_POST['sueldo']);
   $actualizar = $cone->consulta1("update salario set nombre_empleado='$nombre', puesto_empleado='$puesto', sueldo_empleado=$sueldo where lower(dni_empleado)='$primaryKey';");

@@ -45,9 +45,9 @@ $arrayDatos = $cone->consulta2("SELECT * from salario;");//ascendente
         <td class="contenido"><input type="text" name="sueldo" size="15" placeholder="Campo obligatorio"></td>
         <td class="vacio" colspan="2"><input type="submit" name="aniadir" id="aniadir" value="Añadir nueva entrada"></td><!--añade los campos rellenados-->
       </tr>
-    </tbody>
-  </table>
-</form>
+    </tbody><!--fin tbody-->
+  </table><!--fin table-->
+</form><!--fin formulario-->
 <?php
 
 
@@ -57,7 +57,7 @@ if (!empty($_POST['aniadir'])) {
   if (empty($_POST['dni'])) {
     echo "<p>El campo DNI no puede estar vacio!</p>";
     $flag=false;
-  }elseif($_POST['dni']>10){
+  }elseif(strlen($_POST['dni'])>10){
     echo "<p>El campo DNI no contener mas de 10 caracteres!</p>";
     $flag=false;
   }
@@ -81,7 +81,7 @@ if (!empty($_POST['aniadir'])) {
   */
   if ($flag) {
     $dni = Filtrado::filtrado(strtolower($_POST['dni']));
-    $nombre = Filtrado::filtrado(ucfirst($_POST['nombre']));
+    $nombre = Filtrado::filtrado(ucfirst(strtolower($_POST['nombre'])));
     $puesto = Filtrado::filtrado($_POST['puesto']);
     $sueldo = Filtrado::filtrado($_POST['sueldo']);
 
