@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
+    var visita;
+    function crearCookieVisita() {
+      var fecha = new Date();
+      fecha.setTime(fecha.getTime() + 1000 * 10);
+      document.cookie = "numVisita=1;"+"expires="+fecha.toUTCString()+";";
+    }
+
+    function aumentarCookieVisita() {
+      var valor = document.cookie.split("=");
+
+      var fecha = new Date();
+      fecha.setTime(fecha.getTime() + 1000 * 10);
+      visita = parseInt(valor[1]);
+      document.cookie = "numVisita=" + (parseInt(valor[1]) + 1) + ";expires="+fecha.toUTCString()+";";
+      visita++;
+    }
+
+    function actualizarTitulo() {
+      document.title = "Visita numero: " + visita;
+    }
+
+    function comprobarCookies() {
+      if(document.cookie.length === 0) {
+        if(visita === undefined){
+          visita = 1;
+        }
+        crearCookieVisita();
+        actualizarTitulo();
+      }else {
+        aumentarCookieVisita();
+        actualizarTitulo();
+      }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+  </html>

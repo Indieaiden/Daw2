@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>crono</title>
-    <script type="text/javascript">
-      function crono(){
-        var time = new date();
-        document.title=();
-      }
-    </script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript">
 
-  </body>
+  var FechaIni = new Date();
+  var inicio = FechaIni.getTime();
+  function crono(){
+    var time = new Date();
+    var tiempo = Math.round((time.getTime() - inicio) / 1000);
+    var min=0;
+    var horas=0;
+    var segundos=0;
+    var strTiempo;
+    if (true) {
+
+    }
+    document.title=tiempo;
+  }
+  crono();
+  // Actualiza el título con una llamada
+  var temporizador = setInterval("crono()", 1000);
+
+
+
+</script>
+</head>
+<body>
+
+</body>
 </html>

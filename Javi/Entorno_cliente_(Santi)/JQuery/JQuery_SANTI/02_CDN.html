@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CARGA DE JQuery versión 3.3.1</title>
+    <meta charset="utf-8" />
+    <meta author="Santiago Alonso Gómez" />
+    <meta description="Página que carga JQuery" />
+    <meta keywords="Prueba inicial" />
+
+<!-- Carga de JQuery desde CDN -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+<!-- Si no se carga desde el CDN carga en local -->
+<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.js"/>')</script></script>
+
+    <script>
+      $(document).ready(function(){
+          alert("JQuery cargado");
+      });
+    </script>
+  </head>
+  <body>
+Carga desde CDN o local
+  </body>
+</html>

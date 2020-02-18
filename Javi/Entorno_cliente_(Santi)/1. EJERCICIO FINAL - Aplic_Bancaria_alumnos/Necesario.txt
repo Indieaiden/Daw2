@@ -1,0 +1,19 @@
+maquina virtual ubuntu servidor 18
+
+Apache				sudo apt install apache2
+MySql (MariaDB)			sudo apt install mariadb-server
+PHP				sudo apt install php7.2
+PHPmyAdmin			
+FTP				
+Open SSH Server			sudo apt install openssh-server
+
+poner contraseña al superuser{
+sudo su
+pwd lacontraseña
+}
+
+
+
+opcional: instalar Ranger para navegar como si hubiera directorios
+
+windows cliente ssh PuTTY

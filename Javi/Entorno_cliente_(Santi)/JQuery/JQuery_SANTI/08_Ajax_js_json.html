@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ajax y JSON</title>
+    <meta charset="utf-8" />
+    <meta author="Santiago Alonso Gómez" />
+    <meta description="Página que carga JQuery" />
+    <meta keywords="Prueba inicial" />
+
+<style>
+    #cargando {
+	    visibility: hidden;
+    }
+</style>
+
+<script>
+  function llamada() {
+	document.getElementById("cargando").style.visibility = "visible";
+	var obj_xhttp = new XMLHttpRequest();
+	obj_xhttp.timeout = 2000;
+	obj_xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("datos").innerHTML = this.responseText;
+		}
+	}
+	obj_xhttp.ontimeout = function() {
+		document.getElementById("datos").innerHTML = "El servidor no ha enviado los datos a tiempo<br><br>";
+	}
+	var obj_js = {dni : document.getElementById("dni").value, nombre : document.getElementById("nombre").value};
+	var obj_json = JSON.stringify(obj_js);
+	obj_xhttp.open("POST", "http://localhost/08_Ajax_js_json.php", true);
+// La cabecera siguiente es obligatoria para el método POST y debe estar entre los métodos open() y send()
+        obj_xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	obj_xhttp.send("x="+obj_json);
+  }
+</script>
+
+  </head>
+  <body>
+<form>
+DNI.......- <input type="text" id="dni" /><br><br>
+Nombre.- <input type="text" id="nombre" /> <br><br><br>
+<div id="cargando">Cargando ...<br></div>
+<div id="datos"></div>
+<div id="completo"></div>
+<img src="enviar.jpeg" onclick='llamada();'/>
+</form>
+  </body>
+</html>

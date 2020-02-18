@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CARGA DE JQuery versión 3.3.1</title>
+    <meta charset="utf-8" />
+    <meta author="Santiago Alonso Gómez" />
+    <meta description="Página que carga JQuery" />
+    <meta keywords="Prueba inicial" />
+
+<style>
+#cargando {
+	visibility: hidden;
+}
+</style>
+
+<!-- Carga de JQuery desde CDN -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
+<!-- Si no se carga desde el CDN carga en local -->
+<script>window.jQuery || document.write('<script src="js/jquery-3.3.1.js"/>')</script></script>
+
+<script>
+  function llamada() {
+	$("#cargando").css("visibility", "visible");
+	$.ajax({
+		url : 'http://localhost/05_Ajax_datos.php',
+		type : 'GET',
+		data : { dni : document.forms[0].dni.value,
+			 nombre : document.forms[0].nombre.value },
+		timeout : 3000,
+		success : function(resultado) {
+				$("#datos").html(resultado);
+			  },
+		error : function() {
+				$("#datos").html("Error en recepción de datos");
+			  },
+                complete : function() {
+//				$("#cargando").css("visibility", "hidden");
+				$("#completo").html("Operación completada");
+			  }
+	});
+  }
+</script>
+
+  </head>
+  <body>
+<form>
+DNI.......- <input type="text" name="dni" /><br><br>
+Nombre.- <input type="text" name="nombre" /> <br><br><br>
+<div id="cargando">Cargando ...</div>
+<div id="datos"></div>
+<div id="completo"></div>
+<img src="enviar.jpeg" onclick='llamada();'/>
+</form>
+  </body>
+</html>
