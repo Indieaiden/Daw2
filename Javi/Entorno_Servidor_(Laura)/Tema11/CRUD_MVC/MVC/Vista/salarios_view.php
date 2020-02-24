@@ -54,7 +54,7 @@
     <?php
     for ($i=1; $i <= $totalPaginas ; $i++) {
       ?>
-      <input type="submit" name="<?php echo "p"; ?>" value="<?php echo $i; ?>">
+      <input type="submit" class="<?php if (($i==$_GET['p']) || (!isset($_GET['p']) && ($i==1))){echo "pagination active";}else {echo "pagination"; } ?>" name="<?php echo "p"; ?>" value="<?php echo $i; ?>">
       <?php
     }
     ?>

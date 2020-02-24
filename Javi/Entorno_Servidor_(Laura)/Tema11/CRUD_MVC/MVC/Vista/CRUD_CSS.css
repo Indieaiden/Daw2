@@ -27,6 +27,19 @@ table td.vacio, thead th.vacio{
   border-radius: 10px;
   outline: none;
 }
+.pagination{
+  border-radius: 5px;
+  border: 0;
+  background-color: white;
+}
+.pagination:hover{
+  background-color: blue;
+  color: white;
+}
+.active{
+  background-color: blue;
+  color: white;
+}
 #borrar:hover{
   background-color: red;
   color: white;
