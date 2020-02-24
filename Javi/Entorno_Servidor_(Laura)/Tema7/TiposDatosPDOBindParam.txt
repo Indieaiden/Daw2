@@ -1,0 +1,9 @@
+PDO::PARAM_BOOL (integer) (0-1) boolean
+PDO::PARAM_NULL (integer) NULL
+PDO::PARAM_INT (integer) integer
+PDO::PARAM_STR (integer) String, CHAR, VARCHAR de SQL, u otro tipo de datos de cadena.
+PDO::PARAM_STR_NATL (integer) NPI
+PDO::PARAM_STR_CHAR (integer) NPI 2.0
+PDO::PARAM_LOB (integer) dato de objeto grande (LOB) de SQL. NPI 3.0
+PDO::PARAM_STMT (integer) Representa un tipo de conjunto de registros. No está soportado actualmente por ningún controlador.
+PDO::PARAM_INPUT_OUTPUT (integer) Especifica que el parámetro es de entrada/salida (INOUT) para un procedimiento almacenado. Se debe realizar un OR a nivel de bit con un tipo de datos PDO::PARAM_* explícito.
