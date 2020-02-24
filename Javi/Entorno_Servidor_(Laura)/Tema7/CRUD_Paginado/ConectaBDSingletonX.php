@@ -4,8 +4,8 @@ class ConectaBDSingleton{
   private static $instancia;
   private function __construct(){//Instancia para ooder establecer una conexion pdo
     $dsn = 'mysql:host=localhost;dbname=dwes;charset=utf8';
-    $username='root';
-    $password ='';
+    $username='manager';
+    $password ='Nohay2sin3';
     try{
       $this->conexion = new PDO( $dsn, $username, $password );//intenta iniciar la conexion
     }catch ( PDOException $e){//excepcion!
@@ -25,14 +25,14 @@ class ConectaBDSingleton{
   public function __clone(){ // Evita que el objeto se pueda clonar{
     trigger_error('La clonación  no está permitida', E_USER_ERROR);
   }
+
   public function consultarDatos($limitDesde="", $limitCuantos=""){ // Ejecuta consulta con o sin limite de resultados y devuelve array de resultados o FALSE sí falla ejecución
     try {
       $limite="";
       if ((!($limitDesde==="") && !($limitCuantos===""))&&(is_numeric($limitDesde) && is_numeric($limitCuantos))) {
-
         $limite=" LIMIT ".floor($limitDesde).",".floor($limitCuantos)."";
       }
-      $qer = $this->conexion->prepare("SELECT * from productos ".$limite.";");
+      $qer = $this->conexion->prepare("SELECT * from salario ".$limite.";");
       $qer ->execute();
       $filas=array();
       $qer->setFetchMode(PDO::FETCH_ASSOC);//Establece el modo de obtención para esta sentencia (Clase PDO )
@@ -46,12 +46,11 @@ class ConectaBDSingleton{
       return false;
     }
   }
-  public function borrarDatos($idfabricante, $idproducto){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
+  public function borrarDatos($dni){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
     try {
       $filas=array();
-      $qer = $this->conexion->prepare("delete from productos where lower(idFabricante)= lower(:idF) and lower(idProducto)= lower(:idP) ;");
-      $qer ->bindParam(":idF", $idfabricante);
-      $qer ->bindParam(":idP", $idproducto);
+      $qer = $this->conexion->prepare("delete from salario where lower(dni_empleado)= :dni ;");
+      $qer ->bindParam(":dni", $dni);
       $qer ->execute();
     } catch ( PDOException $e) {
       echo ( "¡Error! al ejecutar el borrado: " . $e->getMessage() . "<br/>");
@@ -59,30 +58,28 @@ class ConectaBDSingleton{
     }
 
   }
-  public function actualizaDatos($idfabricante, $idproducto,$descripcion,$precio,$existencias){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
+  public function actualizaDatos($dni,$nombre,$puesto,$sueldo){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
     try {
       $filas=array();
-      $qer = $this->conexion->prepare("update productos set descripcion= :desc , precio= :precio , existencias= :exix where lower(idFabricante)= lower(:idF) and lower(idProducto)= lower(:idP);");
-      $qer ->bindParam(":desc", $descripcion);
-      $qer ->bindParam(":precio", $precio);
-      $qer ->bindParam(":exix", $existencias);
-      $qer ->bindParam(":idF", $idfabricante);
-      $qer ->bindParam(":idP", $idproducto);
+      $qer = $this->conexion->prepare("update salario set nombre_empleado= :nombre , puesto_empleado= :puesto , sueldo_empleado= :sueldo where lower(dni_empleado)= :dni;");
+      $qer ->bindParam(":dni", $dni);
+      $qer ->bindParam(":nombre", $nombre);
+      $qer ->bindParam(":puesto", $puesto);
+      $qer ->bindParam(":sueldo", $sueldo);
       $qer ->execute();
     } catch ( PDOException $e) {
       echo ( "¡Error! al actualizar la tabla: " . $e->getMessage() . "<br/>");
       return false;
     }
   }
-  public function introducirDatos($idfabricante, $idproducto,$descripcion,$precio,$existencias){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
+  public function introducirDatos($dni,$nombre,$puesto,$sueldo){ // Ejecuta consulta y devuelve array de resultados o NULL sí falla ejecución
     try {
       $filas=array();
-      $qer = $this->conexion->prepare("insert into productos values (:idF,:idP,:desc,:precio,:exix);");
-      $qer ->bindParam(":idF", $idfabricante);
-      $qer ->bindParam(":idP", $idproducto);
-      $qer ->bindParam(":desc", $descripcion);
-      $qer ->bindParam(":precio", $precio);
-      $qer ->bindParam(":exix", $existencias);
+      $qer = $this->conexion->prepare("insert into salario values (:dni,:nombre,:puesto,:sueldo);");
+      $qer ->bindParam(":dni", $dni);
+      $qer ->bindParam(":nombre", $nombre);
+      $qer ->bindParam(":puesto", $puesto);
+      $qer ->bindParam(":sueldo", $sueldo);
       $qer ->execute();
     } catch ( PDOException $e) {
       echo ( "¡Error! al actualizar la tabla: " . $e->getMessage() . "<br/>");

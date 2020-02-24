@@ -1,0 +1,14 @@
+<?php
+/*
+* Pagina fugaz que simplemente realiza la consulta (ver mover al index y evitar esta pagina)
+* $primaryKey = strtolower($_GET['dni']);
+* sentencia borrado: "delete from salario where lower(dni_empleado)='$primaryKey';"
+*/
+include_once('ConectaBDSingleton.php');
+
+$primaryKey = $_GET['dni'];
+$p = $_GET['p'];
+$cone = ConectaBDSingleton::singleton();//reutilizamos la conexion singleton para poder hacer la consulta
+$cone->borrarDatos($primaryKey);
+header("Location: index.php?p=".$p);//automaticamente redirecciona al index
+ ?>
