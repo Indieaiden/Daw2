@@ -1,7 +1,6 @@
 <?php
 require("./header.php");
 ?>
-
 <?php 
 	$c = array ("marea"=>"La luna me sabe a poco","fito"=>"Rojitas las orejas","dover"=>"Devil came to me","loquillo"=>"el ritmo del garaje","extremoduro"=>"extremaydura");
 	echo("<h1>Canciones ones ones</h1>");

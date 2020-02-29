@@ -14,6 +14,7 @@ require("./header.php");
 	echo("y ahora la variable b tiene el valor ".$b."<br/>");
 ?>
 
+
 <?php
 include("footer.php");
 ?>
