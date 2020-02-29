@@ -2,7 +2,7 @@
 class conectaBD{
   public $conn = null ;
   public function __construct($database='test'){
-    $dsn ="mysql:host=localhost;dbname=test;charset=utf8" ;
+    $dsn ="mysql:host=localhost;dbname=".$database.";charset=utf8" ;
     try {
       $this->conn = new PDO( $dsn ,$usuario='javier',$pass='Nohay2sin3' );
     } catch ( PDOException $e) {
