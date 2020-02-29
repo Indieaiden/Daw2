@@ -8,7 +8,7 @@
   </head>
   <body>
     <?php
-      $nepe="hola numero 1"
+      $nepe="hola numero 1";
       $chor = (count_chars($nepe,1));
       foreach ($chor as $i => $val) {
         echo "está $val de \"" , chr($i) , "\" en la cadena.\n";

@@ -9,40 +9,37 @@ constructor: recibe el nombre de la figura y lo pone en nombre.
 
  */
 class Figura{
-  $nombre;
-  $colores;
-  $esRellena;
+  
+  public $nombre;
+  public $colores;
+  public $esRellena;
 
-  function __construct($nombreFig){
-    $this->$nombre = $nombreFig;
-    $this->$colores = "";
-    $this->esRellena = false;
-  }
+  
   function getNombre(){
-    return this->$nombre;
+    return $this->nombre;
   }
   function getColor(){
-    return this->$colores;
+    return $this->colores;
   }
   function setColor($color){
-    this->$colores = $color;
+    $this->colores = $color;
   }
-  function estaRellena(){
-    if ($esRellena==true) {
+  public function estaRellena(){
+    if ($this->esRellena==true) {
       return true;
     }else{
       return false;
     }
   }
-  function estaVacia(){
-    if ($esRellena==true) {
+  public function estaVacia(){
+    if ($this->esRellena==true) {
       return false;
     }else{
       return true;
     }
   }
    function showInfo(){
-     echo ($nombre+" tiene el color "+$colores+" y "+(estaVacia()==true ? "esta vacio" : "esta llena"));
+     echo ($this->nombre." tiene el color ".$this->colores." y ".($this->estaVacia()==true ? "esta vacio" : "esta llena"));
    }
 }
  ?>

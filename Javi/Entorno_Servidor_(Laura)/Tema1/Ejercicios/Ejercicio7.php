@@ -3,7 +3,7 @@ require("./header.php");
 ?>
 
 <?php 
-	array arr ("marea"=>"La luna me sabe a poco","fito"=>"Rojitas las orejas","dover"=>"Devil came to me","loquillo"=>"el ritmo del garaje","extremoduro"=>""extremaydura");
+	$c = array ("marea"=>"La luna me sabe a poco","fito"=>"Rojitas las orejas","dover"=>"Devil came to me","loquillo"=>"el ritmo del garaje","extremoduro"=>"extremaydura");
 	echo("<h1>Canciones ones ones</h1>");
 	echo("<ol>");
 	echo("<li>$c1</li>");

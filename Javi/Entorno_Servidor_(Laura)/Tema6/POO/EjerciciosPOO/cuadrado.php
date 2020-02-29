@@ -21,16 +21,10 @@ class Cuadrado extends Figura{
 
 //mis pruebas
 $figuras =new Figura("Figura");
-$figura->showInfo();
-$circulo = new Circulo("Circulitis");
-$circulo->setRadio(2);
-$circulo->showInfo();
-echo "Área del circulo = ". $circulo->getArea()."<br>";
-
+$figuras->showInfo();
 
 $cuadrado= new Cuadrado();
 $cuadrado->setLado(5);
-$circulo->showInfo();
 
 echo "Área del cuadrado = ". $cuadrado->getArea()."<br>";
 

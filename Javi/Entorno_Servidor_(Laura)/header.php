@@ -12,6 +12,9 @@ function creaHeader($titulo = "Index", $desc = "Pagina principal" , $autor = "Ja
 		a:hover {
 			color: red;
 		}
+		ol > li{
+      list-style-type: lower-latin;
+    }
 		</style>
 	</head>
 	<body>

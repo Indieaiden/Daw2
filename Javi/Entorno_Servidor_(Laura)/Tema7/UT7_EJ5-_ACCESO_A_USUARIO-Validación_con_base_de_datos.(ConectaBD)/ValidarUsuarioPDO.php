@@ -47,8 +47,8 @@ class conectaBD{
       $qer = $this->conexion->query($orden);
       $qer ->execute();
     } catch (PDOException $e) {
-      echo "Error al actualizar los datos: " . $conexion->error;
-      return false
+      echo "Error al actualizar los datos: " . $this->conexion->error;
+      return false;
     }
   }
 //  public function introduceDatos($orden){
@@ -97,8 +97,8 @@ if (isset($_POST["Enviar"])) {
   <?php
   //Consultita para tener los usuarios siempre visibles para tesst
   $Id = new mysqli("127.0.0.1", "javier", "Nohay2sin3", "dwes");
-  $Id->real_query("SELECT * FROM usuario");//ascendente
-  $result = $Id->store_result();
+  $tesst = $Id->real_query("SELECT * FROM usuario");//ascendente
+  $result = $tesst->store_result();
   while ($fila = $result->fetch_assoc()) {
     echo " usuario = ".$fila['login']."<br>";
     echo " pwd = ".$fila['clave']."<br>";

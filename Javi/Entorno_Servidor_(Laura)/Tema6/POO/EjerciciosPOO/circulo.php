@@ -21,7 +21,7 @@ class Circulo extends Figura{
 
 //mis pruebas
 $figuras =new Figura("Figura");
-$figura->showInfo();
+$figuras->showInfo();
 $circulo = new Circulo("Circulitis");
 $circulo->setRadio(2);
 $circulo->showInfo();
